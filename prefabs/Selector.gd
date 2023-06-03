@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -8,12 +8,10 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
-func on_pointer_change(node):
-	$lb_pointer.text = "..."
-	if node: $lb_pointer.text = node.name
+	on_select_object(null)
 
 func on_select_object(node):
-	if node: print(node.name)
-	else: print("none")
+	visible = false
+	if node:
+		visible = true
+		position = node.position

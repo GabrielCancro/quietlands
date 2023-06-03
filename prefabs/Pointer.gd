@@ -3,6 +3,12 @@ extends Node2D
 var over_objects = []
 var object_selected = null
 
+var down_mouse_pos
+var drag_vector
+var draging = false
+
+onready var camera = get_node("../Camera2D")
+
 signal change_over_object(node)
 signal select_object(node)
 
@@ -14,7 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position = get_global_mouse_position()
+	if !draging: position = get_global_mouse_position()
 
 func on_enter_area(node):
 	over_objects.append(node.get_parent())
@@ -29,6 +35,17 @@ func on_exit_area(node):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			object_selected = null
-			if over_objects.size()>0: object_selected = over_objects[0]
-			emit_signal("select_object", object_selected)
+			print("CLICK DOWN")
+			down_mouse_pos = position
+			drag_vector = Vector2(0,0)
+		elif event.button_index == BUTTON_LEFT and !event.pressed:
+			print("CLICK UP")
+			if down_mouse_pos == position:
+				print("ON CLICK")
+				object_selected = null
+				if over_objects.size()>0: object_selected = over_objects[0]
+				emit_signal("select_object", object_selected)
+			down_mouse_pos = null
+	if down_mouse_pos && event is InputEventMouseMotion:
+		if position.distance_to(down_mouse_pos)>0: 
+			camera.position -= event.relative

@@ -11,6 +11,7 @@ region = Rect2( 192, 32, 32, 32 )
 [sub_resource type="CircleShape2D" id=5]
 
 [node name="Pointer" type="Node2D"]
+z_index = 4096
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

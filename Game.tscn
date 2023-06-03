@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://assets/Decorations.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://prefabs/Pointer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/UI.gd" type="Script" id=5]
 [ext_resource path="res://prefabs/Build.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game.gd" type="Script" id=7]
+[ext_resource path="res://prefabs/Selector.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tileset.png 0"
@@ -43,6 +45,7 @@ atlas = ExtResource( 2 )
 region = Rect2( 0, 128, 64, 128 )
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="BG" type="CanvasLayer" parent="."]
 layer = -1
@@ -53,8 +56,13 @@ anchor_bottom = 1.0
 color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 200, 400 )
+current = true
 script = ExtResource( 3 )
+
+[node name="Pointer" parent="." instance=ExtResource( 4 )]
+
+[node name="Selector" parent="." instance=ExtResource( 8 )]
+z_index = 4096
 
 [node name="World" type="Node2D" parent="."]
 
@@ -85,10 +93,7 @@ texture = SubResource( 3 )
 [node name="Build2" parent="World" instance=ExtResource( 6 )]
 position = Vector2( 311, 354 )
 
-[node name="Pointer" parent="World" instance=ExtResource( 4 )]
-
 [node name="UI" type="CanvasLayer" parent="."]
-layer = -1
 script = ExtResource( 5 )
 
 [node name="lb_pointer" type="Label" parent="UI"]
