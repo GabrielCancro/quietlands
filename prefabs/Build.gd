@@ -1,16 +1,16 @@
 extends Node2D
 
+var segs = 5
+var bon = 3
+var isBuildBlocker = true
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$ProgressBar.max_value = segs
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	$ProgressBar.value += delta
+	if($ProgressBar.value>= $ProgressBar.max_value):
+		$ProgressBar.value -= $ProgressBar.max_value
+		GC.add_resource(bon)
+		GC.add_float_text(bon,position+Vector2(0,-50))

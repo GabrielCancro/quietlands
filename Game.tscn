@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://assets/Decorations.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://prefabs/Build.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game.gd" type="Script" id=7]
 [ext_resource path="res://prefabs/Selector.tscn" type="PackedScene" id=8]
+[ext_resource path="res://prefabs/Builder.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tileset.png 0"
@@ -59,6 +60,8 @@ color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
 current = true
 script = ExtResource( 3 )
 
+[node name="Builder" parent="Camera2D" instance=ExtResource( 9 )]
+
 [node name="Pointer" parent="." instance=ExtResource( 4 )]
 
 [node name="Selector" parent="." instance=ExtResource( 8 )]
@@ -101,3 +104,24 @@ margin_right = 40.0
 margin_bottom = 14.0
 rect_scale = Vector2( 3, 3 )
 text = "asdas"
+
+[node name="lb_resources" type="Label" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -120.0
+margin_right = -80.0
+margin_bottom = 14.0
+rect_scale = Vector2( 3, 3 )
+text = "asdas"
+align = 2
+
+[node name="btn_build" type="Button" parent="UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -104.0
+margin_top = -112.0
+margin_right = -20.0
+margin_bottom = -38.0
+text = "BUILD"

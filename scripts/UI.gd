@@ -1,14 +1,11 @@
 extends CanvasLayer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+signal on_button(btn)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$btn_build.connect("button_down",)
+	update_ui()
 
 func on_pointer_change(node):
 	$lb_pointer.text = "..."
@@ -17,3 +14,6 @@ func on_pointer_change(node):
 func on_select_object(node):
 	if node: print(node.name)
 	else: print("none")
+
+func update_ui():
+	$lb_resources.text = str(GC.data.resources)+" *"
