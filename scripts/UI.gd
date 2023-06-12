@@ -4,7 +4,7 @@ signal on_button(btn)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$btn_build.connect("button_down",)
+	$btn_build.connect("button_down",get_node("../Camera2D/Builder"),"on_build_button_click")
 	update_ui()
 
 func on_pointer_change(node):
