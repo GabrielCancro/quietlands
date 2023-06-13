@@ -35,13 +35,13 @@ func on_exit_area(node):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			print("CLICK DOWN")
+#			print("CLICK DOWN")
 			down_mouse_pos = position
 			drag_vector = Vector2(0,0)
 		elif event.button_index == BUTTON_LEFT and !event.pressed:
-			print("CLICK UP")
+#			print("CLICK UP")
 			if down_mouse_pos == position:
-				print("ON CLICK")
+#				print("ON CLICK")
 				object_selected = null
 				if over_objects.size()>0: object_selected = over_objects[0]
 				emit_signal("select_object", object_selected)

@@ -20,10 +20,10 @@ GC="*res://scripts/GlobalConfig.gd"
 
 [display]
 
-window/size/width=400
-window/size/height=800
-window/size/test_width=250
-window/size/test_height=500
+window/size/width=800
+window/size/height=400
+window/size/test_width=500
+window/size/test_height=250
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

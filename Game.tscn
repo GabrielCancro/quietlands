@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://assets/Decorations.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Game.gd" type="Script" id=7]
 [ext_resource path="res://prefabs/Selector.tscn" type="PackedScene" id=8]
 [ext_resource path="res://prefabs/Builder.tscn" type="PackedScene" id=9]
+[ext_resource path="res://prefabs/CenterPointer.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tileset.png 0"
@@ -59,6 +60,8 @@ color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 script = ExtResource( 3 )
+
+[node name="CenterPointer" parent="Camera2D" instance=ExtResource( 10 )]
 
 [node name="Builder" parent="Camera2D" instance=ExtResource( 9 )]
 
