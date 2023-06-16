@@ -22,7 +22,6 @@ func _ready():
 func on_enter_area(node):
 	node = node.get_parent()
 	if excludes.has(node.name): return
-	if node.name == "Builder": return
 	over_objects.append(node)
 	if over_objects.size()>0: emit_signal("change_over_object", over_objects[0])
 	else: emit_signal("change_over_object", null)

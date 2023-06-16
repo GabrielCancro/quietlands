@@ -4,8 +4,8 @@ var over_objects = []
 var object_selected = null
 
 var down_mouse_pos
-var drag_vector
-var draging = false
+var down_camera_pos
+var excludes = ["Builder","Pointer","CenterPointer"]
 
 onready var camera = get_node("../Camera2D")
 
@@ -20,32 +20,34 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if !draging: position = get_global_mouse_position()
+	position = get_global_mouse_position()
 
-func on_enter_area(node):
-	over_objects.append(node.get_parent())
+func on_enter_area(node_area):
+	var node = node_area.get_parent()
+	if excludes.has(node.name): return
+	over_objects.append(node)
 	if over_objects.size()>0: emit_signal("change_over_object", over_objects[0])
 	else: emit_signal("change_over_object", null)
 
-func on_exit_area(node):
-	over_objects.erase(node.get_parent())
+func on_exit_area(node_area):
+	var node = node_area.get_parent()
+	if excludes.has(node.name): return
+	over_objects.erase(node)
 	if over_objects.size()>0: emit_signal("change_over_object", over_objects[0])
 	else: emit_signal("change_over_object", null)
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-#			print("CLICK DOWN")
 			down_mouse_pos = position
-			drag_vector = Vector2(0,0)
+			down_camera_pos = get_node("../Camera2D").position
 		elif event.button_index == BUTTON_LEFT and !event.pressed:
-#			print("CLICK UP")
-			if down_mouse_pos == position:
-#				print("ON CLICK")
-				object_selected = null
-				if over_objects.size()>0: object_selected = over_objects[0]
-				emit_signal("select_object", object_selected)
+			object_selected = null
+			if get_node("../Camera2D").position.distance_to(down_camera_pos)<25:
+				if over_objects.size()>0:
+					if position.distance_to(down_mouse_pos)<1:
+						object_selected = over_objects[0]
+			emit_signal("select_object", object_selected)
 			down_mouse_pos = null
 	if down_mouse_pos && event is InputEventMouseMotion:
-		if position.distance_to(down_mouse_pos)>0: 
 			camera.position -= event.relative

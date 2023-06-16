@@ -62,6 +62,7 @@ current = true
 script = ExtResource( 3 )
 
 [node name="CenterPointer" parent="Camera2D" instance=ExtResource( 10 )]
+visible = false
 
 [node name="Builder" parent="Camera2D" instance=ExtResource( 9 )]
 
