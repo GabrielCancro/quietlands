@@ -1,14 +1,21 @@
 extends Node
 
 var GAME
+var POINTER
+var object_selected = null
+signal new_build_created()
+signal on_select_object(object)
 
 var data = {
 	"resources": 10
 }
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+
+func select_object(object):
+	object_selected = object
+	emit_signal("on_select_object",object_selected)
 
 func add_resource(cnt=0):
 	data.resources += cnt
@@ -19,3 +26,9 @@ func add_float_text(tx,pos):
 	FX.position = pos
 	FX.setText(tx)
 	GAME.add_child(FX)
+
+func get_current_build_type():
+	var b = GC.object_selected 
+	if !b: return "NONE"
+	if !"buildType" in b: return "NONE"
+	return b.buildType

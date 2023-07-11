@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://prefabs/BuildMenu.gd" type="Script" id=1]
+
+[node name="BuildMenu" type="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -287.0
+margin_top = -251.0
+script = ExtResource( 1 )
+
+[node name="btn1" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -192.0
+margin_top = -57.0
+margin_right = -132.0
+margin_bottom = -7.0
+text = "BUILD"
+
+[node name="btn2" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -180.0
+margin_top = -151.0
+margin_right = -120.0
+margin_bottom = -101.0
+text = "BUILD"
+
+[node name="btn3" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -84.0
+margin_top = -190.0
+margin_right = -24.0
+margin_bottom = -140.0
+text = "BUILD"

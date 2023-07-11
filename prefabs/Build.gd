@@ -4,9 +4,10 @@ var segs = 5
 var bon = 3
 var isBuildBlocker = true
 
-
 func _ready():
 	$ProgressBar.max_value = segs
+	yield(get_tree().create_timer(.1),"timeout")
+	GC.emit_signal("new_build_created",self)
 
 func _process(delta):
 	$ProgressBar.value += delta

@@ -4,7 +4,6 @@ signal on_button(btn)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$btn_build.connect("button_down",get_node("../Camera2D/Builder"),"on_build_button_click")
 	update_ui()
 
 func on_pointer_change(node):
@@ -14,6 +13,10 @@ func on_pointer_change(node):
 func on_select_object(node):
 	if node: print(node.name)
 	else: print("none")
+	update_ui()
 
 func update_ui():
 	$lb_resources.text = str(GC.data.resources)+" *"
+	var buildType = GC.get_current_build_type()
+	print("BUILD SELECTED "+buildType)
+	$BuildMenu.visible = (buildType=="DEBRIS" && GC.object_selected.isActive)
