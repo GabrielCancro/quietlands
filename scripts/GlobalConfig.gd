@@ -32,3 +32,6 @@ func get_current_build_type():
 	if !b: return "NONE"
 	if !"buildType" in b: return "NONE"
 	return b.buildType
+	
+func set_z_index_to(obj):
+	obj.z_index = 100+floor(obj.position.y/10)
