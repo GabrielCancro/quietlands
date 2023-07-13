@@ -6,6 +6,10 @@ var object_selected = null
 signal new_build_created()
 signal on_select_object(object)
 
+var CONFIG = {
+	"units_per_barrack":3,
+}
+
 var data = {
 	"resources": 10
 }
@@ -33,5 +37,5 @@ func get_current_build_type():
 	if !"buildType" in b: return "NONE"
 	return b.buildType
 	
-func set_z_index_to(obj):
-	obj.z_index = 100+floor(obj.position.y/10)
+func set_z_index_to(obj,offset=0):
+	obj.z_index = 100+floor(obj.position.y/10)+offset

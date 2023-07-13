@@ -41,8 +41,7 @@ func _input(event):
 			if !down_camera_pos: return
 			if camera.position.distance_to(down_camera_pos)<25:
 				if over_objects.size()>0:
-					if position.distance_to(down_mouse_pos)<1:
-						object_selected = over_objects[0]
+					object_selected = over_objects[0]
 			GC.select_object(object_selected)
 			down_mouse_pos = null
 	if down_mouse_pos && event is InputEventMouseMotion:

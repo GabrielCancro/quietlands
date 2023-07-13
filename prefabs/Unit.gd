@@ -6,6 +6,8 @@ var unitType # MILICIAN ARCHER
 var speed = 30
 var wait_time = 0
 
+signal dead(unit)
+
 func _ready():
 	$AnimationPlayer.play("Idle")
 	destine = position
@@ -14,6 +16,7 @@ func _process(delta):
 	if !spawner: return
 	if position.distance_to(destine)>10:
 		var dir = (destine - position).normalized()
+		$Sprite.flip_h = (dir.x<0)
 		move_and_slide(dir*speed)
 		GC.set_z_index_to(self)
 	else:

@@ -60,6 +60,7 @@ anchor_bottom = 1.0
 color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 402, 199 )
 current = true
 
 [node name="Pointer" parent="." instance=ExtResource( 4 )]
@@ -82,7 +83,6 @@ tile_data = PoolIntArray( 131080, 0, 0, 131081, 0, 1, 131082, 0, 1, 131083, 0, 1
 
 [node name="Deco" type="CollisionShape2D" parent="World/Trees"]
 position = Vector2( 189, 215 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -95,7 +95,6 @@ offset = Vector2( 0, -4.631 )
 
 [node name="Deco2" type="CollisionShape2D" parent="World/Trees"]
 position = Vector2( 311, 290 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -108,7 +107,6 @@ offset = Vector2( 0, -40 )
 
 [node name="Deco3" type="CollisionShape2D" parent="World/Trees"]
 position = Vector2( 168, 297 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 __meta__ = {
 "_edit_group_": true
