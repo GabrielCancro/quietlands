@@ -1,18 +1,18 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	$btn1.connect("button_down",self,"on_build_button",["HOUSE"])
-	$btn2.connect("button_down",self,"on_build_button",["BARRACK"])
-	$btn3.connect("button_down",self,"on_build_button",["ARCHERY"])
+	$btn1.connect("button_down",self,"on_build_button",[GC.BuildEnum.HOUSE])
+	$btn2.connect("button_down",self,"on_build_button",[GC.BuildEnum.BARRACK])
+	$btn3.connect("button_down",self,"on_build_button",[GC.BuildEnum.ARCHERY])
 
 func on_build_button(buildType):
-	print("BUILD AN "+buildType)
-	var BUILD = preload("res://prefabs/Build.tscn").instance()
+	var BUILD = get_build_scene(buildType)
 	BUILD.position = GC.object_selected.position
-	BUILD.set_build_type(buildType)
 	GC.GAME.add_child(BUILD)
 	var old_object = GC.object_selected
 	GC.select_object(BUILD)
 	old_object.queue_free()
+
+func get_build_scene(buildType):
+	if buildType==GC.BuildEnum.HOUSE: return preload("res://prefabs/builds/BuildHouse.tscn").instance()
+	if buildType==GC.BuildEnum.BARRACK: return preload("res://prefabs/builds/BuildBarrack.tscn").instance()

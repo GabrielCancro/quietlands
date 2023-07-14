@@ -3,7 +3,7 @@ extends Control
 var isActived = true
 var isLoop = true
 var elapsed_time = 0
-var total_time = 1
+export var total_time = 1
 
 signal end_progress
 

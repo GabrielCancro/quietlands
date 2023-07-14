@@ -6,6 +6,10 @@ var object_selected = null
 signal new_build_created()
 signal on_select_object(object)
 
+enum OwnEnum {NONE,PLAYER,ENEMY}
+enum BuildEnum {DEBRIS,HOUSE,BARRACK,ARCHERY}
+enum UnitEnum {MILICIAN,ARCHER}
+
 var CONFIG = {
 	"units_per_barrack":3,
 }
@@ -33,9 +37,10 @@ func add_float_text(tx,pos):
 
 func get_current_build_type():
 	var b = GC.object_selected 
-	if !b: return "NONE"
-	if !"buildType" in b: return "NONE"
+	if !b: return -1
+	if !"buildType" in b: return -1
 	return b.buildType
 	
 func set_z_index_to(obj,offset=0):
 	obj.z_index = 100+floor(obj.position.y/10)+offset
+

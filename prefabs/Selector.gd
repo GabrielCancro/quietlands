@@ -9,7 +9,7 @@ func on_select_object(node):
 	if node:
 		visible = true
 		position = node.position
-		GC.set_z_index_to(self,-1)
+		GC.set_z_index_to(self,-10)
 
 func scale_fx():
 	$Tween.remove_all()

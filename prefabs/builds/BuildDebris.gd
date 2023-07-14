@@ -1,13 +1,15 @@
-extends StaticBody2D
+extends "res://prefabs/builds/BuildBase.gd"
 
-var buildType = "DEBRIS"
 var isActive = false
 
 func _ready():
+	buildType = GC.BuildEnum.DEBRIS
+	own = GC.OwnEnum.NONE
 	$Sprite.modulate = Color(.3,.3,.3,1)
 	GC.connect("new_build_created",self,"check_activate")
 
 func check_activate(build):
+	if(build.own!=GC.OwnEnum.PLAYER): return
 	if build.position.distance_to(position)<50*$Region.scale.x:
 		activate()
 

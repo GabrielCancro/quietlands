@@ -18,5 +18,4 @@ func on_select_object(node):
 func update_ui():
 	$lb_resources.text = str(GC.data.resources)+" *"
 	var buildType = GC.get_current_build_type()
-	print("BUILD SELECTED "+buildType)
-	$BuildMenu.visible = (buildType=="DEBRIS" && GC.object_selected.isActive)
+	$BuildMenu.visible = (buildType==GC.BuildEnum.DEBRIS && GC.object_selected.isActive)
