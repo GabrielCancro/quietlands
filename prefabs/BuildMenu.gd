@@ -3,7 +3,7 @@ extends Control
 func _ready():
 	$btn1.connect("button_down",self,"on_build_button",[GC.BuildEnum.HOUSE])
 	$btn2.connect("button_down",self,"on_build_button",[GC.BuildEnum.BARRACK])
-	$btn3.connect("button_down",self,"on_build_button",[GC.BuildEnum.ARCHERY])
+#	$btn3.connect("button_down",self,"on_build_button",[GC.BuildEnum.ARCHERY])
 
 func on_build_button(buildType):
 	var BUILD = get_build_scene(buildType)

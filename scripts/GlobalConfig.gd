@@ -2,6 +2,7 @@ extends Node
 
 var GAME
 var POINTER
+var UNITS = []
 var object_selected = null
 signal new_build_created()
 signal on_select_object(object)
