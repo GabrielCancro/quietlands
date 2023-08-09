@@ -45,3 +45,11 @@ func get_current_build_type():
 func set_z_index_to(obj,offset=0):
 	obj.z_index = 100+floor(obj.position.y/10)+offset
 
+func clear_fog(pos,rad):
+	pos = Vector2(floor(pos.x/32),floor(pos.y/32))
+	var Tile = GAME.get_node("World/TileFog") as TileMap
+	for ix in range(-rad,rad+1):
+		for iy in range(-rad,rad+1):
+			if(abs(ix)+abs(iy)>rad+1): continue
+			Tile.set_cell(pos.x+ix,pos.y+iy,-1)
+			print( str(pos)+"  "+str( Tile.get_cell(pos.x+ix,pos.y+iy) ) )

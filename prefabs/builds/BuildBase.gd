@@ -10,6 +10,7 @@ func _ready():
 	GC.set_z_index_to(self)
 	yield(get_tree().create_timer(.1),"timeout")
 	GC.emit_signal("new_build_created",self)
+	GC.clear_fog(position,2)
 
 func on_finish_progress():
 	pass #override
