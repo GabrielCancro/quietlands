@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://addons/fire/fire2d.shader" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=8]
+
+[sub_resource type="NoiseTexture" id=7]
+noise = SubResource( 8 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/root_color = Color( 0, 0, 0, 1 )
+shader_param/tip_color = Color( 0.172549, 0.14902, 0.14902, 1 )
+shader_param/fire_alpha = 1.0
+shader_param/fire_speed = Vector2( 0.03, -0.1 )
+shader_param/fire_aperture = 0.0
+shader_param/noise_tex = SubResource( 7 )

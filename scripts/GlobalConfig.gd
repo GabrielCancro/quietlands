@@ -4,11 +4,13 @@ var GAME
 var POINTER
 var UNITS = []
 var object_selected = null
+var RES = {"f":5, "w":5, "s":5}
+var RES_BON = {"f":0, "w":0, "s":0}
 signal new_build_created()
 signal on_select_object(object)
 
 enum OwnEnum {NONE,PLAYER,ENEMY}
-enum BuildEnum {DEBRIS,HOUSE,BARRACK,ARCHERY}
+enum BuildEnum {DEBRIS,HOUSE,BARRACK,ARCHERY,RESOURCE}
 enum UnitEnum {MILICIAN,ARCHER}
 
 var CONFIG = {
@@ -46,6 +48,7 @@ func set_z_index_to(obj,offset=0):
 	obj.z_index = 100+floor(obj.position.y/10)+offset
 
 func clear_fog(pos,rad):
+	if rad<=0: return;
 	pos = Vector2(floor(pos.x/32),floor(pos.y/32))
 	var Tile = GAME.get_node("World/TileFog") as TileMap
 	for ix in range(-rad,rad+1):

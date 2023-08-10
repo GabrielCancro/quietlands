@@ -4,13 +4,14 @@ var buildType = null # Debris House Barrack Archery
 var isBuildBlocker = true
 var own = GC.OwnEnum.NONE
 var units_array = []
+var vision_range = 3
 
 func _ready():
 	$ProgressBar.connect("end_progress",self,"on_finish_progress")
 	GC.set_z_index_to(self)
 	yield(get_tree().create_timer(.1),"timeout")
 	GC.emit_signal("new_build_created",self)
-	GC.clear_fog(position,2)
+	GC.clear_fog(position,vision_range)
 
 func on_finish_progress():
 	pass #override

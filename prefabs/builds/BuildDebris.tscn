@@ -8,12 +8,14 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="1"]
+position = Vector2( 0, 6 )
 frame = 31
 
 [node name="ProgressBar" parent="." index="2"]
 visible = false
 
 [node name="Region" type="Sprite" parent="." index="3"]
+visible = false
 modulate = Color( 1, 1, 1, 0.0392157 )
 scale = Vector2( 3.2, 3.2 )
 texture = ExtResource( 3 )
