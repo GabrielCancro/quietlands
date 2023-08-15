@@ -24,4 +24,4 @@ func check_places(body):
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		GC.GAME.get_node("UI/BuildMenu").show_menu()
+		if(current_place && current_place.has_method("interact")): current_place.interact()

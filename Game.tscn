@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://assets/Decorations.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://shaders/2d_simple_water.gdshader" type="Shader" id=20]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=21]
 [ext_resource path="res://nodes/Ruins.tscn" type="PackedScene" id=22]
+[ext_resource path="res://ui/ResHeader.tscn" type="PackedScene" id=23]
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 20 )
@@ -139,6 +140,8 @@ text = "BUILD"
 
 [node name="BuildMenu" parent="UI" instance=ExtResource( 9 )]
 visible = false
+
+[node name="ResHeader" parent="UI" instance=ExtResource( 23 )]
 
 [node name="Pointer" parent="." instance=ExtResource( 4 )]
 
