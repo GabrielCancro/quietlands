@@ -2,6 +2,7 @@ extends Node
 
 var GAME
 var POINTER
+var PLAYER
 var UNITS = []
 var object_selected = null
 var RES = {"f":5, "w":5, "s":5}

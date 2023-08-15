@@ -20,5 +20,5 @@ func update_ui():
 	$lb_resources.text += "WOOD "+str(GC.RES["w"])+" +"+str(GC.RES_BON["w"])+"    "
 	$lb_resources.text += "STONE "+str(GC.RES["s"])+" +"+str(GC.RES_BON["s"])
 	var buildType = GC.get_current_build_type()
-	$BuildMenu.update_menu(buildType)
+#	$BuildMenu.update_menu(buildType)
 	

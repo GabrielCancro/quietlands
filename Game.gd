@@ -6,4 +6,4 @@ func _ready():
 	$Pointer.connect("change_over_object",$UI,"on_pointer_change")
 	GC.connect("on_select_object",$UI,"on_select_object")
 	GC.connect("on_select_object",$Selector,"on_select_object")
-	$World/TileFog.visible = true
+#	$World/TileFog.visible = true

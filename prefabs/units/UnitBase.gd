@@ -64,7 +64,7 @@ func on_destine():
 func get_damage(damage,imp=Vector2()):
 	impulse = imp
 	hp -= rand_range(damage,damage*2)
-	print(name+" HP:"+str(hp))
+#	print(name+" HP:"+str(hp))
 	if hp<=0: 
 		GC.UNITS.erase(self)
 		queue_free()
