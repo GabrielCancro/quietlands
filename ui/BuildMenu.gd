@@ -2,10 +2,12 @@ extends Control
 
 func _ready():
 	$btn1.connect("button_down",self,"on_build_button",["HOUSE"])
+	$btn2.connect("button_down",self,"on_build_button",["BARRACK"])
 	$btnX.connect("button_down",self,"hide_menu")
 
 func show_menu():
 	$btn1.set_data("HOUSE")
+	$btn2.set_data("BARRACK")
 	visible = true
 
 func hide_menu():

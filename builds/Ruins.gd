@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var buildType = "Ruins"
+var buildType = "RUINS"
 
 
 # Called when the node enters the scene tree for the first time.

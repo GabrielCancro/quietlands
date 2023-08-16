@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var buildType = "House"
+var buildType = "HOUSE"
 
 
 func _ready():

@@ -2,10 +2,12 @@ extends Node
 
 var BuildNodes = {
 	"HOUSE": preload("res://builds/House.tscn"),
+	"BARRACK": preload("res://builds/Barrack.tscn"),
 }
 
 var BuildCosts = {
 	"HOUSE": {"w":2},
+	"BARRACK": {"w":2},
 }
 
 var BUILDINGS = []

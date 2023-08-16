@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://assets/Decorations.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Game.gd" type="Script" id=7]
 [ext_resource path="res://prefabs/Selector.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/BuildMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ui/ResPopup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/fog.png" type="Texture" id=13]
 [ext_resource path="res://shaders/noise_texture.tres" type="Texture" id=16]
 [ext_resource path="res://shaders/Ground.png" type="Texture" id=17]
@@ -127,6 +128,14 @@ text = "BUILD"
 visible = false
 
 [node name="ResHeader" parent="UI" instance=ExtResource( 23 )]
+
+[node name="ResPopup" parent="UI" instance=ExtResource( 10 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -114.5
+margin_top = 14.0
+margin_right = 114.5
+margin_bottom = 72.0
 
 [node name="Pointer" parent="." instance=ExtResource( 4 )]
 

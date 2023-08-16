@@ -3,6 +3,8 @@ extends Node
 var GAME
 var POINTER
 var PLAYER
+var PLAYER_BUILDER
+var RES_POPUP
 var UNITS = []
 var object_selected = null
 var RES = {"f":5, "w":5, "s":5}
@@ -66,3 +68,17 @@ func clear_fog(pos,rad):
 			if(abs(ix)+abs(iy)>rad+1): continue
 			Tile.set_cell(pos.x+ix,pos.y+iy,-1)
 			print( str(pos)+"  "+str( Tile.get_cell(pos.x+ix,pos.y+iy) ) )
+
+func get_bbcode_cost(cost):
+	var bbcode = "[center]"
+	bbcode += get_resource_string_bbcode_formated(cost,"f")+" / "
+	bbcode += get_resource_string_bbcode_formated(cost,"w")+" / "
+	bbcode += get_resource_string_bbcode_formated(cost,"s")
+	return bbcode
+
+func get_resource_string_bbcode_formated(cost,key):
+	var bbcode = ""
+	if !key in cost: bbcode += "-"
+	elif RES[key]>=cost[key]: bbcode += str(cost[key])
+	else: bbcode += "[color=red]"+str(cost[key])+"[/color]"
+	return bbcode

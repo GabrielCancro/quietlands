@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/F_RESOURCES_UI.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/F_SMALL_BUTTON.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/ResPopup.gd" type="Script" id=3]
+[ext_resource path="res://assets/Interface/panel1_small.png" type="Texture" id=4]
+
+[node name="ResPopup" type="Control"]
+margin_right = 229.0
+margin_bottom = 58.0
+script = ExtResource( 3 )
+
+[node name="BG" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Name" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8.0
+margin_bottom = -25.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "NAME"
+align = 1
+valign = 1
+
+[node name="Cost" type="RichTextLabel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -26.0
+margin_bottom = -4.0
+mouse_filter = 1
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]9 / 9 / 9"
+text = "9 / 9 / 9"
+scroll_active = false
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="Tween" type="Tween" parent="."]
