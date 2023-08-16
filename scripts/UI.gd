@@ -16,9 +16,7 @@ func on_select_object(node):
 	update_ui()
 
 func update_ui():
-	$lb_resources.text = "FOOD "+str(GC.RES["f"])+" +"+str(GC.RES_BON["f"])+"    "
-	$lb_resources.text += "WOOD "+str(GC.RES["w"])+" +"+str(GC.RES_BON["w"])+"    "
-	$lb_resources.text += "STONE "+str(GC.RES["s"])+" +"+str(GC.RES_BON["s"])
+	$ResHeader.update_ui()
 	var buildType = GC.get_current_build_type()
 #	$BuildMenu.update_menu(buildType)
 	

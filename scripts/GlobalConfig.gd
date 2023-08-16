@@ -6,7 +6,6 @@ var PLAYER
 var UNITS = []
 var object_selected = null
 var RES = {"f":5, "w":5, "s":5}
-var RES_BON = {"f":0, "w":0, "s":0}
 signal new_build_created()
 signal on_select_object(object)
 
@@ -29,9 +28,19 @@ func select_object(object):
 	object_selected = object
 	emit_signal("on_select_object",object_selected)
 
-func add_resource(cnt=0):
-	data.resources += cnt
+func add_one_resource(key,val):
+	RES[key] += val
 	GAME.get_node("UI").update_ui()
+
+func reduce_resources(cost={}):
+	for k in cost.keys():
+		RES[k] -= cost[k]
+	GAME.get_node("UI").update_ui()
+
+func check_resorces_amount(cost={}):
+	for k in cost.keys():
+		if RES[k]<cost[k]: return false
+	return true
 
 func add_float_text(tx,pos):
 	var FX = preload("res://fx/FloatText.tscn").instance()

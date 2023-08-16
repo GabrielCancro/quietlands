@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://fonts/F_SMALL_BUTTON.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/BuildMenu.gd" type="Script" id=2]
+[ext_resource path="res://ui/BuildButton.tscn" type="PackedScene" id=3]
 
 [node name="BuildMenu" type="Control"]
 anchor_right = 1.0
@@ -13,29 +14,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.196078, 0.196078, 0.196078, 0.588235 )
 
-[node name="btn1" type="Button" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -186.0
-margin_top = -70.0
-margin_right = -122.0
-margin_bottom = -20.0
-custom_fonts/font = ExtResource( 1 )
-text = "HOUSE"
-
-[node name="btn2" type="Button" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -108.0
-margin_top = -149.0
-margin_right = -26.0
-margin_bottom = -99.0
-custom_fonts/font = ExtResource( 1 )
-text = "BARRACK"
+[node name="btn1" parent="." instance=ExtResource( 3 )]
+margin_left = -220.0
+margin_top = -77.0
+margin_right = -105.0
+margin_bottom = -17.0
 
 [node name="btnX" type="Button" parent="."]
 anchor_left = 1.0
