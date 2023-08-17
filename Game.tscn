@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://assets/Decorations.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://prefabs/Selector.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/BuildMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ui/ResPopup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://attacks/weapon.tscn" type="PackedScene" id=11]
+[ext_resource path="res://builds/House.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/fog.png" type="Texture" id=13]
 [ext_resource path="res://shaders/noise_texture.tres" type="Texture" id=16]
 [ext_resource path="res://shaders/Ground.png" type="Texture" id=17]
@@ -203,8 +205,14 @@ offset = Vector2( 0, -40 )
 
 [node name="Structures" type="Node2D" parent="World"]
 
+[node name="Weapon" parent="World/Structures" instance=ExtResource( 11 )]
+position = Vector2( 277, 146 )
+
+[node name="House" parent="World/Structures" instance=ExtResource( 12 )]
+position = Vector2( 214, 121 )
+
 [node name="Ruins" parent="World/Structures" instance=ExtResource( 22 )]
-position = Vector2( 80, 176 )
+position = Vector2( 246, 195 )
 
 [node name="Ruins2" parent="World/Structures" instance=ExtResource( 22 )]
 position = Vector2( 176, 96 )

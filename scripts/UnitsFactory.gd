@@ -20,3 +20,10 @@ func spawn_unit(unitType,pos):
 	GC.GAME.get_node("World").add_child(NODE)
 	UNITS.append(NODE)
 	return NODE
+
+func spawn_bullet(pos,target):
+	var NODE = preload("res://attacks/bullet.tscn").instance()
+	NODE.position = pos
+	NODE.target = target
+	GC.GAME.get_node("World").add_child(NODE)
+	return NODE

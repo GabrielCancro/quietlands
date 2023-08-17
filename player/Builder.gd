@@ -27,3 +27,6 @@ func check_places(body):
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		if(current_place && current_place.has_method("interact")): current_place.interact()
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_G: 
+			UnitsFactory.spawn_bullet(get_global_mouse_position(),GC.PLAYER)
