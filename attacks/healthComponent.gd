@@ -9,6 +9,6 @@ func _ready():
 
 func get_damage(dam=1):
 	hp -= dam
-	print("DAM ",get_parent().name," ",hp,"/",hpMax)
+	#print("DAM ",get_parent().name," ",hp,"/",hpMax)
 	emit_signal("receive_damage",self)
 	if(hp<0): get_parent().queue_free()

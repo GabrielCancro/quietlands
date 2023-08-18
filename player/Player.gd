@@ -4,6 +4,7 @@ var move_velocity = Vector2()
 var max_speed = 100
 var velocity = Vector2()
 var impulse = Vector2()
+var team = 1
 
 func _ready():
 	GC.PLAYER = self

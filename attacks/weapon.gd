@@ -7,7 +7,7 @@ var _counter_cooldown = 0
 signal attack(target)
 
 func _ready():
-	pass # Replace with function body.
+	if("team" in get_parent()): team = get_parent().team
 
 func _process(delta):
 	if(_counter_cooldown<cooldown): _counter_cooldown += delta
@@ -16,7 +16,6 @@ func _process(delta):
 func try_shot():
 	var minor_distance = 999999
 	var candidate = null
-	print($Area2D.get_overlapping_bodies())
 	for body in $Area2D.get_overlapping_bodies():
 		if !body.get_node_or_null("healthComponent"): continue
 		if("team" in body && team>0 && body.team==team): continue

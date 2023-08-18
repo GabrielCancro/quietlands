@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://OLD_prefabs/units/UnitBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://OLD_prefabs/units/UnitMilician.gd" type="Script" id=2]
+
+[node name="UnitMilician" instance=ExtResource( 1 )]
+script = ExtResource( 2 )

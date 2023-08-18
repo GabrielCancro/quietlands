@@ -1,7 +1,8 @@
 extends Node
 
 var UnitNodes = {
-	"MILICIAN": preload("res://prefabs/units/UnitMilician.tscn"),
+	"MILICIAN": preload("res://OLD_prefabs/units/UnitMilician.tscn"),
+	"ENEMY": preload("res://units/Enemy.tscn"),
 }
 
 var UnitCosts = {

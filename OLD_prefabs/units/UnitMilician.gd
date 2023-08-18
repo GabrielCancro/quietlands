@@ -1,4 +1,4 @@
-extends "res://prefabs/units/UnitBase.gd"
+extends "res://OLD_prefabs/units/UnitBase.gd"
 
 func _ready():
 	._ready()
