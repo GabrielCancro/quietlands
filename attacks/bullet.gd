@@ -8,7 +8,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	if !target: queue_free()
+	if !is_instance_valid(target): queue_free()
 	else:
 		speed += 150*delta
 		position += position.direction_to(target.position)*speed*delta

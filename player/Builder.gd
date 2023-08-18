@@ -28,6 +28,8 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		if(current_place && current_place.has_method("interact")): current_place.interact()
 	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_G: 
+		if event.scancode == KEY_F: 
 			#UnitsFactory.spawn_bullet(get_global_mouse_position(),GC.PLAYER)
+			UnitsFactory.spawn_unit("MILICIAN",get_global_mouse_position())
+		if event.scancode == KEY_G: 
 			UnitsFactory.spawn_unit("ENEMY",get_global_mouse_position())

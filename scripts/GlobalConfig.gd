@@ -82,3 +82,13 @@ func get_resource_string_bbcode_formated(cost,key):
 	elif RES[key]>=cost[key]: bbcode += str(cost[key])
 	else: bbcode += "[color=red]"+str(cost[key])+"[/color]"
 	return bbcode
+
+func get_most_close_unit(my,distance=99999):
+	var candidate = null
+	for un in GC.UNITS:
+		if !is_instance_valid(un): continue
+		if "team" in my && my.team != -1 && "team" in un && un.team==my.team: continue
+		if my.position.distance_to(un.position)>distance: continue
+		distance = my.position.distance_to(un.position)
+		candidate = un
+	return candidate
