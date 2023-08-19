@@ -15,7 +15,7 @@ func _process(delta):
 	else: try_shot()
 
 func try_shot():
-	var candidate = GC.get_most_close_unit(get_parent(),ran)
+	var candidate = GC.get_most_close_health(get_parent(),ran)
 	if candidate:
 		UnitsFactory.spawn_bullet(global_position,candidate)
 		_counter_cooldown = 0;

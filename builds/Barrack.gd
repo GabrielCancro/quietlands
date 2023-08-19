@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 var buildType = "BARRACK"
+var team = 1
 var interaction_name = "MILICIAN"
 var interaction_cost = UnitsFactory.UnitCosts[interaction_name]
 

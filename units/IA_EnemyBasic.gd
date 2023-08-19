@@ -15,7 +15,7 @@ func _process(delta):
 	if awaiting>0:
 		awaiting -= delta
 		return
-	if !target: return
+	if !is_instance_valid(target): return
 	dir = global_position.direction_to(target.position)
 	distance = position.distance_to(target.position)
 	if distance>10:
@@ -23,4 +23,4 @@ func _process(delta):
 		get_parent().move_and_slide(dir*speed)
 
 func check_target():
-	target = GC.get_most_close_unit(get_parent())
+	target = GC.get_most_close_health(get_parent())

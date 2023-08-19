@@ -70,4 +70,4 @@ anims/Idle = SubResource( 2 )
 current = true
 
 [node name="Light2D" parent="." instance=ExtResource( 1 )]
-texture_scale = 4.5
+texture_scale = 6.0
