@@ -4,7 +4,6 @@ var over_objects = []
 var down_mouse_pos
 var down_camera_pos
 var excludes = ["Pointer"]
-onready var camera = get_node("../Camera2D")
 
 signal change_over_object(node)
 
@@ -32,6 +31,7 @@ func on_exit_area(node_area):
 	else: emit_signal("change_over_object", null)
 
 func _input(event):
+	var camera = GC.PLAYER.get_node("Camera2D")
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			down_mouse_pos = position

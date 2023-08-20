@@ -15,7 +15,7 @@ script = ExtResource( 4 )
 [node name="Day" type="NinePatchRect" parent="."]
 margin_left = -11.0
 margin_top = 24.0
-margin_right = 92.0
+margin_right = 115.0
 margin_bottom = 74.0
 texture = ExtResource( 2 )
 patch_margin_left = 12
@@ -29,14 +29,14 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="Day"]
 margin_left = 13.0
 margin_top = 33.0
-margin_right = 93.0
+margin_right = 117.0
 margin_bottom = 42.0
 color = Color( 0.137255, 0.137255, 0.137255, 1 )
 
 [node name="TextureProgress" type="TextureProgress" parent="Day"]
 margin_left = 14.0
 margin_top = 34.0
-margin_right = 92.0
+margin_right = 116.0
 margin_bottom = 41.0
 value = 25.0
 texture_under = ExtResource( 3 )
@@ -51,11 +51,20 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -93.0
+margin_left = -118.0
 margin_top = -17.0
-margin_right = -6.0
+margin_right = -5.0
 margin_bottom = 11.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
-text = "DAY 10"
+text = "DIA 10"
 align = 1
+
+[node name="Button" type="Button" parent="."]
+margin_left = -9.0
+margin_top = 26.0
+margin_right = 115.0
+margin_bottom = 72.0
+flat = true
+
+[node name="Tween" type="Tween" parent="."]

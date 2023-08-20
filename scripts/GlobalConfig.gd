@@ -1,6 +1,7 @@
 extends Node
 
 var GAME
+var UI
 var POINTER
 var PLAYER
 var PLAYER_BUILDER
@@ -92,3 +93,12 @@ func get_most_close_health(my,distance=99999):
 		distance = my.position.distance_to(un.position)
 		candidate = un
 	return candidate
+
+func collect_resources():
+	for bld in GC.HEALTHS:
+		if !"buildType" in bld: continue
+		if bld.buildType != "EXTRACTOR": continue
+		yield(get_tree().create_timer(.5),"timeout")
+		var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
+		Node.set_resource( bld.extractor_type.substr(0,1).to_lower() )
+		UI.add_child(Node)

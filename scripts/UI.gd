@@ -4,6 +4,7 @@ signal on_button(btn)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GC.UI = self
 	update_ui()
 
 func on_pointer_change(node):

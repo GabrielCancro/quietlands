@@ -68,6 +68,7 @@ anims/Idle = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+smoothing_enabled = true
 
 [node name="Light2D" parent="." instance=ExtResource( 1 )]
 texture_scale = 6.0
