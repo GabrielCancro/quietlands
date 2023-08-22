@@ -16,6 +16,7 @@ func _process(delta):
 	if Input.is_action_pressed("ui_up"): move.y = -1 
 	if Input.is_action_pressed("ui_down"): move.y = 1 
 	move_velocity += move.normalized()*5
+	$Sprite.flip_h = (move_velocity.x<0)
 	if(move_velocity.length()>max_speed):
 		move_velocity = move_velocity.normalized()*max_speed
 	velocity = move_and_slide(move_velocity+impulse,Vector2.UP)
