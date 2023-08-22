@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/F_RESOURCES_UI.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/F_SMALL_BUTTON.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ui/ResPopup.gd" type="Script" id=3]
 [ext_resource path="res://assets/Interface/panel1_small.png" type="Texture" id=4]
+[ext_resource path="res://ui/ResCost.tscn" type="PackedScene" id=5]
 
 [node name="ResPopup" type="Control"]
 margin_right = 229.0
@@ -54,3 +55,9 @@ anchor_bottom = 1.0
 flat = true
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="ResCost" parent="." instance=ExtResource( 5 )]
+margin_left = 3.0
+margin_top = 55.0
+margin_right = 227.0
+margin_bottom = 87.0
