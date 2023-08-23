@@ -96,7 +96,8 @@ func get_most_close_health(my,distance=99999):
 
 func collect_resources():
 	for bld in GC.HEALTHS:
-		if !"buildType" in bld: continue
+		if !is_instance_valid(bld): continue
+		if !bld.get("buildType"): continue
 		if bld.buildType != "EXTRACTOR": continue
 		yield(get_tree().create_timer(.5),"timeout")
 		var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()

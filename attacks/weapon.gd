@@ -9,6 +9,7 @@ signal attack(target)
 
 func _ready():
 	if("team" in get_parent()): team = get_parent().team
+	$Sprite.visible = false
 
 func _process(delta):
 	if(_counter_cooldown<cooldown): _counter_cooldown += delta

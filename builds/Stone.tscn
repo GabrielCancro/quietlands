@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/ui_recs.png" type="Texture" id=1]
+[ext_resource path="res://assets/Elements/obj_rocks.png" type="Texture" id=1]
 [ext_resource path="res://builds/Resource.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -13,8 +13,5 @@ buildType = "STONE"
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1, -4 )
+position = Vector2( 0, -2 )
 texture = ExtResource( 1 )
-hframes = 4
-vframes = 3
-frame = 11

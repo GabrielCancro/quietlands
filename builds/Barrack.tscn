@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/tileset16x16_1.png" type="Texture" id=1]
+[ext_resource path="res://assets/Elements/bld_barrack.png" type="Texture" id=1]
 [ext_resource path="res://builds/Barrack.gd" type="Script" id=2]
 [ext_resource path="res://attacks/healthComponent.tscn" type="PackedScene" id=3]
 
@@ -16,10 +16,5 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 6 )
-scale = Vector2( 2, 2 )
+position = Vector2( 0, -7 )
 texture = ExtResource( 1 )
-offset = Vector2( 0, -5 )
-hframes = 8
-vframes = 14
-frame = 30

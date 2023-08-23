@@ -2,7 +2,7 @@
 
 [ext_resource path="res://attacks/healthComponent.tscn" type="PackedScene" id=1]
 [ext_resource path="res://units/IA_EnemyBasic.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Units/dungeon monsters.png" type="Texture" id=3]
+[ext_resource path="res://assets/Elements/unit_spear.png" type="Texture" id=3]
 [ext_resource path="res://units/Soldier.gd" type="Script" id=4]
 [ext_resource path="res://attacks/weapon.tscn" type="PackedScene" id=5]
 
@@ -13,7 +13,7 @@ bg_color = Color( 0.74902, 1, 0.266667, 1 )
 bg_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 6.08276
+radius = 5.09902
 
 [sub_resource type="Animation" id=8]
 resource_name = "Idle"
@@ -50,8 +50,5 @@ shape = SubResource( 5 )
 anims/Idle = SubResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -6 )
 texture = ExtResource( 3 )
-offset = Vector2( 0, -5.015 )
-hframes = 20
-vframes = 20
-frame = 218
