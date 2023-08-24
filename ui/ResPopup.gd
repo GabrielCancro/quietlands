@@ -9,7 +9,6 @@ func _ready():
 func set_popup(node):
 	if node && "interaction_name" in node && node.interaction_name!=null:
 		$Name.text = node.interaction_name
-		$Cost.bbcode_text = GC.get_bbcode_cost(node.interaction_cost)
 		$ResCost.set_cost(node.interaction_cost)
 		$Tween.interpolate_property(self,"modulate",modulate,Color(1,1,1,1),.2)
 	else: 

@@ -14,6 +14,7 @@ script = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="healthComponent" parent="." instance=ExtResource( 2 )]
+hpMax = 10
 
 [node name="Reshouse" type="Sprite" parent="."]
 position = Vector2( 5, 1 )
