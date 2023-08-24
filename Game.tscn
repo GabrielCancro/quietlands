@@ -7,7 +7,7 @@
 [ext_resource path="res://scripts/UI.gd" type="Script" id=5]
 [ext_resource path="res://fonts/F_SMALL_BUTTON.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Game.gd" type="Script" id=7]
-[ext_resource path="res://OLD_prefabs/Selector.tscn" type="PackedScene" id=8]
+[ext_resource path="res://effects/Effector.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/BuildMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ui/ResPopup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://builds/Food.tscn" type="PackedScene" id=12]
@@ -141,9 +141,6 @@ margin_top = 14.0
 margin_right = 114.5
 margin_bottom = 72.0
 
-[node name="Selector" parent="." instance=ExtResource( 8 )]
-z_index = 4096
-
 [node name="World" type="Node2D" parent="."]
 script = ExtResource( 3 )
 
@@ -220,11 +217,13 @@ position = Vector2( 70, 159 )
 [node name="Stone" parent="World/Structures" instance=ExtResource( 15 )]
 position = Vector2( 137, 100 )
 
+[node name="Wood" parent="World" instance=ExtResource( 24 )]
+position = Vector2( 204, 77 )
+
+[node name="Wood2" parent="World" instance=ExtResource( 24 )]
+position = Vector2( 53, 90 )
+
 [node name="Player" parent="." instance=ExtResource( 21 )]
 position = Vector2( 160, 160 )
 
-[node name="Wood" parent="." instance=ExtResource( 24 )]
-position = Vector2( 204, 77 )
-
-[node name="Wood2" parent="." instance=ExtResource( 24 )]
-position = Vector2( 53, 90 )
+[node name="Effector" parent="." instance=ExtResource( 8 )]

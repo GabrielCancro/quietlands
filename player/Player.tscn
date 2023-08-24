@@ -34,7 +34,7 @@ tracks/0/keys = {
 script = ExtResource( 3 )
 
 [node name="healthComponent" parent="." instance=ExtResource( 6 )]
-hpMax = 12
+hpMax = 25
 
 [node name="Weapon" parent="." instance=ExtResource( 7 )]
 

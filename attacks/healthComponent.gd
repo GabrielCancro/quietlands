@@ -23,5 +23,6 @@ func get_damage(dam=1):
 	#print("DAM ",get_parent().name," ",hp,"/",hpMax)
 	emit_signal("receive_damage",self)
 	if(hp<=0): 
+		GC.EFFECTOR.dead_fx(global_position)
 		emit_signal("dead",self)
 		get_parent().queue_free()
