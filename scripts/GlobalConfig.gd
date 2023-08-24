@@ -2,11 +2,13 @@ extends Node
 
 var GAME
 var UI
+var DAYNIGHT
 var POINTER
 var PLAYER
 var PLAYER_BUILDER
 var RES_POPUP
 var HEALTHS = []
+var ENEMIES_FROM_PORTAL = 0
 var object_selected = null
 var RES = {"f":5, "w":5, "s":5}
 signal new_build_created()

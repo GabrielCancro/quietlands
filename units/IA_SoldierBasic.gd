@@ -1,6 +1,7 @@
 extends Node2D
 
 export var speed = 30
+export var max_distance = 170
 var dir
 var distance
 var target = null
@@ -15,7 +16,11 @@ func _process(delta):
 	if awaiting>0:
 		awaiting -= delta
 		return
-	if !is_instance_valid(target): return
+	if !is_instance_valid(target): 
+		target = GC.PLAYER
+		return
+	if target == GC.PLAYER && global_position.distance_to(target.position)<35: return
+	
 	dir = global_position.direction_to(target.position)
 	distance = position.distance_to(target.position)
 	if distance>10:
@@ -23,4 +28,4 @@ func _process(delta):
 		get_parent().move_and_slide(dir*speed)
 
 func check_target():
-	target = GC.get_most_close_health(get_parent())
+	target = GC.get_most_close_health(get_parent(),max_distance)

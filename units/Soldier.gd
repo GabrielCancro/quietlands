@@ -11,4 +11,4 @@ func _process(delta):
 	pass
 
 func on_attack(target):
-	$IA_EnemyBasic.awaiting = 1
+	$IA_SoldierBasic.awaiting = 1
