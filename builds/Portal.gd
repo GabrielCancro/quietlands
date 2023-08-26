@@ -14,11 +14,12 @@ func on_change_night(day, isNight):
 		start_wave(day)
 
 func setActivated(val):
-	if val:
-		$AnimatedSprite.playing = true
-		$AnimatedSprite.modulate.a = 1
-	else:
-		$AnimatedSprite.modulate.a = .3
+	$AnimatedSprite.visible = val
+#	if val:
+#		$AnimatedSprite.playing = true
+#		$AnimatedSprite.modulate.a = 1
+#	else:
+#		$AnimatedSprite.modulate.a = .3
 
 func spawn():
 	var rnd_var = Vector2(rand_range(-1,1),rand_range(-1,1)).normalized()

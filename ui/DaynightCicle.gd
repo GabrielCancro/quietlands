@@ -3,7 +3,7 @@ extends Control
 var day = 0
 var time = 60
 var _remain_time = 0
-var isNight = false
+var isNight = true
 onready var CanvasModulate = get_node("/root/Game/CanvasModulate")
 
 signal change_time(day,isNight)
@@ -21,6 +21,7 @@ func _process(delta):
 	$Day/TextureProgress.value = (_remain_time/time)*100
 
 func start_day():
+	if !isNight: return
 	day += 1
 	isNight = false
 	_remain_time = time
@@ -31,6 +32,7 @@ func start_day():
 	GC.collect_resources()
 
 func start_night():
+	if isNight: return
 	_remain_time = 0
 	isNight = true
 	$Day/Label.text = "NOCHE "+str(day)
