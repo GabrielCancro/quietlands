@@ -13,6 +13,14 @@ var BuildCosts = {
 	"EXTRACTOR": {"w":2},
 }
 
+var BuildInPlace = {
+	"FOOD": ["EXTRACTOR"],
+	"WOOD": ["EXTRACTOR"],
+	"STONE": ["EXTRACTOR"],
+	"RUINS": ["HOUSE","BARRACK"],
+	"PORTAL": [],
+}
+
 var BUILDINGS = []
 
 func _ready():
