@@ -19,6 +19,7 @@ var BuildInPlace = {
 	"STONE": ["EXTRACTOR"],
 	"RUINS": ["HOUSE","BARRACK"],
 	"PORTAL": [],
+	"EXTRACTOR": [],
 }
 
 var BUILDINGS = []
