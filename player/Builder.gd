@@ -12,8 +12,8 @@ func _ready():
 func check_places(body):
 	print("check_places!!!")
 	current_place = null
-	for place in get_overlapping_bodies():
-		if "buildType" in place:
+	for place in get_overlapping_bodies():		
+		if "buildType" in place && place.isEnabled:
 			current_place = place
 			break
 	if(current_place):
@@ -22,7 +22,7 @@ func check_places(body):
 	else:
 		$Label.visible = false
 	emit_signal("on_change_current_place",current_place)
-	GC.RES_POPUP.set_popup(current_place)
+	#GC.RES_POPUP.set_popup(current_place)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:

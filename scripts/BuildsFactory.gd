@@ -18,6 +18,7 @@ var BuildInPlace = {
 	"WOOD": ["EXTRACTOR"],
 	"STONE": ["EXTRACTOR"],
 	"RUINS": ["HOUSE","BARRACK"],
+	"BARRACK": ["MILICIAN"],
 	"PORTAL": [],
 	"EXTRACTOR": [],
 }
@@ -39,6 +40,16 @@ func Build_in_current_place(buildType):
 	var Place = GC.PLAYER.get_node("Builder").current_place
 	var pos = Place.position
 	var Build = Build(buildType,pos)
-	if buildType == "EXTRACTOR": Build.extractor_type = Place.buildType
-	Place.queue_free()
+	Build.inPlace = Place
+	if buildType == "EXTRACTOR": 
+		Build.extractor_type = Place.buildType
+		Build.position -= Vector2(10,7)
+	if Place.has_method("set_enabled"): 
+		Place.set_enabled(false)
+		Build.get_node("healthComponent").connect("dead",self,"on_dead_build")
+	GC.set_z_index_to(Build)
 	return Build
+
+func on_dead_build(healthComponent):
+	var Place = healthComponent.get_parent().inPlace
+	if Place.has_method("set_enabled"): Place.set_enabled(true)

@@ -5,7 +5,7 @@ var UnitNodes = {
 	"ENEMY": preload("res://units/Enemy.tscn"),
 }
 
-var UnitCosts = {
+var UnitsCosts = {
 	"MILICIAN": {"f":2},
 }
 

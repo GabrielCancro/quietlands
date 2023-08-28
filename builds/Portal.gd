@@ -1,6 +1,8 @@
 extends StaticBody2D
 
 var buildType = "PORTAL"
+var isEnabled = false
+var inPlace = null
 var endSpawnWave = false
 
 func _ready():

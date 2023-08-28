@@ -65,6 +65,7 @@ margin_left = -9.0
 margin_top = 26.0
 margin_right = 115.0
 margin_bottom = 72.0
+focus_mode = 0
 flat = true
 
 [node name="Tween" type="Tween" parent="."]
