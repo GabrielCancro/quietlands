@@ -24,7 +24,8 @@ func set_data():
 	set_button_data($Button2,next)
 
 func on_change_current_place(node):
-	if node: array_actions = BuildsFactory.BuildInPlace[node.buildType]
+	if node && node.buildType in BuildsFactory.BuildInPlace: 
+		array_actions = BuildsFactory.BuildInPlace[node.buildType]
 	else: array_actions = []
 	index = 0
 	set_data()

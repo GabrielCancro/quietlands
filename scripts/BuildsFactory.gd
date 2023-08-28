@@ -38,5 +38,7 @@ func Build(buildType,pos):
 func Build_in_current_place(buildType):
 	var Place = GC.PLAYER.get_node("Builder").current_place
 	var pos = Place.position
+	var Build = Build(buildType,pos)
+	if buildType == "EXTRACTOR": Build.extractor_type = Place.buildType
 	Place.queue_free()
-	return Build(buildType,pos)
+	return Build
