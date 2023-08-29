@@ -7,3 +7,8 @@ func _ready():
 	GC.connect("on_select_object",$UI,"on_select_object")
 	GC.connect("on_select_object",$Selector,"on_select_object")
 	#$World/TileFog.visible = true
+	load_level(1)
+
+func load_level(id):
+	var LEVEL = load("res://levels/level_"+str(id)+".tscn").instance()
+	add_child(LEVEL)

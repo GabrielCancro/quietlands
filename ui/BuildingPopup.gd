@@ -43,7 +43,6 @@ func _process(delta):
 		if(array_actions[index] in BuildsFactory.BuildNodes): BuildsFactory.Build_in_current_place(array_actions[index])
 		elif(array_actions[index] in UnitsFactory.UnitNodes): UnitsFactory.spawn_unit(array_actions[index],GC.PLAYER_BUILDER.current_place.position)
 		set_process(false)
-		set_data()
 		yield(get_tree().create_timer(.5),"timeout")
 		set_process(true)
 

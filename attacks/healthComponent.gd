@@ -11,6 +11,7 @@ func _ready():
 	hp = hpMax
 	modulate.a = 0
 	GC.HEALTHS.append(get_parent())
+	GC.set_z_index_to(self)
 
 func _process(delta):
 	if show_time>0: show_time -= delta

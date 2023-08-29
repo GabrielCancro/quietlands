@@ -4,11 +4,15 @@ var buildType = "PORTAL"
 var isEnabled = false
 var inPlace = null
 var endSpawnWave = false
+var spawn_list = [  #Types A:ACUMULATIVE / S:SPECIFIC / I:INCREMENTAL
+	{"day":1, "type":"I", "step":2, "enemy":"GHOST"},
+]
 
 func _ready():
 	setActivated(false)
 	yield(get_tree().create_timer(.1),"timeout")
 	GC.DAYNIGHT.connect("change_time",self,"on_change_night")
+	GC.set_z_index_to(self)
 
 func on_change_night(day, isNight):
 	setActivated(isNight)
@@ -23,7 +27,7 @@ func setActivated(val):
 #	else:
 #		$AnimatedSprite.modulate.a = .3
 
-func spawn():
+func spawn(enemy):
 	var rnd_var = Vector2(rand_range(-1,1),rand_range(-1,1)).normalized()
 	var NODE = UnitsFactory.spawn_unit("ENEMY",position+rnd_var*20)
 	NODE.get_node("healthComponent").connect("dead",self,"on_dead_enemy")
@@ -37,7 +41,16 @@ func on_dead_enemy(healthComponent):
 
 func start_wave(day):
 	endSpawnWave = false
-	for i in range(1+day):
-		yield(get_tree().create_timer(.4),"timeout")
-		spawn()
+	for data in spawn_list:
+		if data.day>day: break
+		if data.day == day && data.type=="S": 
+			yield(get_tree().create_timer(.4),"timeout")
+			spawn(data.enemy)
+		if data.day<=day && data.type=="A":
+			yield(get_tree().create_timer(.4),"timeout")
+			spawn(data.enemy)
+		if data.day<=day && data.type=="I":
+			for i in range(1+floor(day-data.day)/data.step):
+				yield(get_tree().create_timer(.4),"timeout")
+				spawn(data.enemy)
 	endSpawnWave = true

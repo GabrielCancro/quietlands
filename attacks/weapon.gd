@@ -1,6 +1,6 @@
 extends Node2D
 
-export var cooldown = 1
+export var cooldown = 1.0
 export var ran = 60
 var team = -1
 var _counter_cooldown = 0

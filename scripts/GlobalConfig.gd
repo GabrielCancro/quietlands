@@ -10,6 +10,7 @@ var RES_POPUP
 var EFFECTOR
 var HEALTHS = []
 var ENEMIES_FROM_PORTAL = 0
+var ZIGURATS_COUNTER = 0
 var object_selected = null
 var RES = {"f":5, "w":5, "s":5}
 
@@ -103,7 +104,8 @@ func collect_resources():
 		if !is_instance_valid(bld): continue
 		if !bld.get("buildType"): continue
 		if bld.buildType != "EXTRACTOR": continue
-		yield(get_tree().create_timer(.5),"timeout")
-		var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
-		Node.set_resource( bld.extractor_type.substr(0,1).to_lower() )
-		UI.add_child(Node)
+		for i in range(bld.amount_res):
+			yield(get_tree().create_timer(.5),"timeout")
+			var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
+			Node.set_resource( bld.extractor_type.substr(0,1).to_lower() )
+			UI.add_child(Node)
