@@ -52,3 +52,6 @@ anims/Idle = SubResource( 8 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -6 )
 texture = ExtResource( 3 )
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true

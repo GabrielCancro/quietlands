@@ -2,6 +2,8 @@ extends Node2D
 
 func _ready():
 	GC.GAME = self
+	GC.LINE2D = $World/Line2D
+	GC.WORLD = $World
 	#$Camera2D/CenterPointer.connect("change_over_object",$UI,"on_pointer_change")
 	#$Pointer.connect("change_over_object",$UI,"on_pointer_change")
 	GC.connect("on_select_object",$UI,"on_select_object")
@@ -12,4 +14,7 @@ func _ready():
 func load_level(id):
 	var LEVEL = load("res://levels/level_"+str(id)+".tscn").instance()
 	add_child(LEVEL)
-	$Player.position = LEVEL.get_node("StartPosition").position
+	GC.TILEMAP = LEVEL.get_node("TileMap")
+	LEVEL.remove_child(GC.TILEMAP)
+	GC.PLAYER.position = LEVEL.get_node("StartPosition").position
+	GC.WORLD.add_child(GC.TILEMAP)
