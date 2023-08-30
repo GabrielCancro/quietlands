@@ -12,3 +12,4 @@ func _ready():
 func load_level(id):
 	var LEVEL = load("res://levels/level_"+str(id)+".tscn").instance()
 	add_child(LEVEL)
+	$Player.position = LEVEL.get_node("StartPosition").position

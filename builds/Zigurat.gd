@@ -1,11 +1,11 @@
-extends StaticBody2D
+extends "res://builds/_BasicBuild.gd"
 
-var team = 2
-
-func _ready():
+func init():
+	buildType = "ZIGURAT"
+	isEnabled = false
+	team = 2
 	GC.ZIGURATS_COUNTER += 1
 	$healthComponent.connect("dead",self,"on_dead")
-	pass # Replace with function body.
 
 func on_dead(healtComponent):
 	GC.ZIGURATS_COUNTER -= 1

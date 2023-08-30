@@ -1,5 +1,5 @@
 extends "res://builds/_BasicBuild.gd"
 
 func init():
-	buildType = "BARRACK"
+	buildType = "CASTLE"
 	team = 1

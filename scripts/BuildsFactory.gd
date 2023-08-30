@@ -4,21 +4,23 @@ var BuildNodes = {
 	"HOUSE": preload("res://builds/House.tscn"),
 	"BARRACK": preload("res://builds/Barrack.tscn"),
 	"EXTRACTOR": preload("res://builds/Extractor.tscn"),
-	"STONE": preload("res://builds/Stone.tscn"),
+	"CASTLE": preload("res://builds/Castle.tscn"),
 }
 
 var BuildCosts = {
 	"HOUSE": {"w":2},
 	"BARRACK": {"w":2},
 	"EXTRACTOR": {"w":2},
+	"CASTLE": {"s":5},
 }
 
 var BuildInPlace = {
 	"FOOD": ["EXTRACTOR"],
 	"WOOD": ["EXTRACTOR"],
 	"STONE": ["EXTRACTOR"],
-	"RUINS": ["HOUSE","BARRACK"],
+	"RUINS": ["CASTLE", "HOUSE","BARRACK"],
 	"BARRACK": ["MILICIAN"],
+	"CASTLE": [],
 	"PORTAL": [],
 	"EXTRACTOR": [],
 }

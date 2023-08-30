@@ -40,9 +40,13 @@ func _process(delta):
 		pressed_time = 0
 		$Button1.rect_scale = Vector2(1,1)
 		GC.reduce_resources(interaction_cost)
-		if(array_actions[index] in BuildsFactory.BuildNodes): BuildsFactory.Build_in_current_place(array_actions[index])
-		elif(array_actions[index] in UnitsFactory.UnitNodes): UnitsFactory.spawn_unit(array_actions[index],GC.PLAYER_BUILDER.current_place.position)
+		if(array_actions[index] in BuildsFactory.BuildNodes): 
+			BuildsFactory.Build_in_current_place(array_actions[index])
+		elif(array_actions[index] in UnitsFactory.UnitNodes): 
+			var rand_pos = Vector2(rand_range(-1,1),rand_range(-1,1)).normalized()*20
+			UnitsFactory.spawn_unit(array_actions[index],GC.PLAYER_BUILDER.current_place.position+rand_pos)
 		set_process(false)
+		set_data()
 		yield(get_tree().create_timer(.5),"timeout")
 		set_process(true)
 

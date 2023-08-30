@@ -1,8 +1,8 @@
-extends StaticBody2D
+extends "res://builds/_BasicBuild.gd"
 
-var buildType = "RUINS"
-var isEnabled = true
-var inPlace = null
+func init():
+	buildType = "RUINS"
+	isEnabled = true
 
 func set_enabled(val):
 	isEnabled = val

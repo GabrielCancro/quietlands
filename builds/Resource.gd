@@ -1,11 +1,10 @@
-extends StaticBody2D
+extends "res://builds/_BasicBuild.gd"
 
-export var buildType = "NONE"
-var isEnabled = true
-var inPlace = null
+export(String, "FOOD", "WOOD", "STONE") var RESOURCE_TYPE
 
-func _ready():
-	GC.set_z_index_to(self)
+func init():
+	buildType = RESOURCE_TYPE
+	isEnabled = true
 
 func interact():
 	pass

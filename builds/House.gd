@@ -1,6 +1,5 @@
-extends StaticBody2D
+extends "res://builds/_BasicBuild.gd"
 
-var buildType = "HOUSE"
-var isEnabled = true
-var inPlace = null
-var team = 1
+func init():
+	buildType = "HOUSE"
+	team = 1

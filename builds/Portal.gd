@@ -1,18 +1,17 @@
-extends StaticBody2D
+extends "res://builds/_BasicBuild.gd"
 
-var buildType = "PORTAL"
-var isEnabled = false
-var inPlace = null
 var endSpawnWave = false
 var spawn_list = [  #Types A:ACUMULATIVE / S:SPECIFIC / I:INCREMENTAL
 	{"day":1, "type":"I", "step":2, "enemy":"GHOST"},
 ]
 
-func _ready():
+func init():
+	buildType = "PORTAL"
+	isEnabled = false
+	team = 2
 	setActivated(false)
 	yield(get_tree().create_timer(.1),"timeout")
 	GC.DAYNIGHT.connect("change_time",self,"on_change_night")
-	GC.set_z_index_to(self)
 
 func on_change_night(day, isNight):
 	setActivated(isNight)

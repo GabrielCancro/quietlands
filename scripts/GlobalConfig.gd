@@ -103,9 +103,19 @@ func collect_resources():
 	for bld in GC.HEALTHS:
 		if !is_instance_valid(bld): continue
 		if !bld.get("buildType"): continue
-		if bld.buildType != "EXTRACTOR": continue
-		for i in range(bld.amount_res):
-			yield(get_tree().create_timer(.5),"timeout")
-			var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
-			Node.set_resource( bld.extractor_type.substr(0,1).to_lower() )
-			UI.add_child(Node)
+		if bld.buildType == "EXTRACTOR":
+			for i in range(bld.amount_res):
+				yield(get_tree().create_timer(.5),"timeout")
+				var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
+				Node.set_resource( bld.extractor_type.substr(0,1).to_lower() )
+				UI.add_child(Node)
+		if bld.buildType == "CASTLE":
+				yield(get_tree().create_timer(.5),"timeout")
+				var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
+				Node.set_resource( "f" )
+				UI.add_child(Node)
+				yield(get_tree().create_timer(.5),"timeout")
+				Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
+				Node.set_resource( "w" )
+				UI.add_child(Node)
+		
