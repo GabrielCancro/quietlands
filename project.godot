@@ -23,8 +23,8 @@ DaynightCicle="*res://scripts/DaynightCicle.gd"
 
 [display]
 
-window/size/width=600
-window/size/height=300
+window/size/width=800
+window/size/height=400
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

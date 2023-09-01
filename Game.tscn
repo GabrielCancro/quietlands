@@ -35,10 +35,10 @@ modulate = Color( 0.458824, 0.458824, 0.54902, 1 )
 material = SubResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -448.0
-margin_top = -192.0
-margin_right = 885.0
-margin_bottom = 624.0
+margin_left = -122.0
+margin_top = -124.0
+margin_right = 1535.0
+margin_bottom = 956.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.352941, 0.352941, 0.352941, 1 )

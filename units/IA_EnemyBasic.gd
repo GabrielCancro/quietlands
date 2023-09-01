@@ -1,6 +1,6 @@
 extends Node2D
 
-export var speed = 100
+export var speed = 30
 var dir
 var distance
 var target = null

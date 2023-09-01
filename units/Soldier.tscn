@@ -28,6 +28,7 @@ script = ExtResource( 4 )
 hpMax = 20
 
 [node name="Weapon" parent="." instance=ExtResource( 5 )]
+cooldown = 1.5
 ran = 40
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
