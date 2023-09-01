@@ -25,8 +25,10 @@ script = ExtResource( 4 )
 [node name="IA_SoldierBasic" parent="." instance=ExtResource( 2 )]
 
 [node name="healthComponent" parent="." instance=ExtResource( 1 )]
+hpMax = 20
 
 [node name="Weapon" parent="." instance=ExtResource( 5 )]
+ran = 40
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 visible = false

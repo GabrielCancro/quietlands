@@ -2,6 +2,7 @@ extends Node2D
 
 export var hpMax = 5
 var hp
+var dont_free_on_dead = false
 
 var show_time = 0
 signal receive_damage(healthComponent)
@@ -26,4 +27,4 @@ func get_damage(dam=1):
 	if(hp<=0): 
 		GC.EFFECTOR.dead_fx(global_position)
 		emit_signal("dead",self)
-		get_parent().queue_free()
+		if !dont_free_on_dead: get_parent().queue_free()

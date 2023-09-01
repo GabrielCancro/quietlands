@@ -8,6 +8,8 @@ var team = 1
 
 func _ready():
 	GC.PLAYER = self
+	$healthComponent.connect("dead",self,"on_dead")
+	$healthComponent.dont_free_on_dead = true
 
 func _process(delta):
 	var move = Vector2()
@@ -26,3 +28,6 @@ func _process(delta):
 	if(move_velocity.length()!=0): $AnimationPlayer.play("Idle")
 	else: $AnimationPlayer.stop()
 	GC.set_z_index_to(self)
+
+func on_dead(hc):
+	GC.end_game(false)

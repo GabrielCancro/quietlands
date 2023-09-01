@@ -14,9 +14,10 @@ var RES_POPUP
 var EFFECTOR
 var HEALTHS = []
 var ENEMIES_FROM_PORTAL = 0
+var TOTAL_SOLDIERS = 0
 var ZIGURATS_COUNTER = 0
 var object_selected = null
-var RES = {"f":5, "w":5, "s":5}
+var RES = {"f":5, "w":5, "s":5, "p":0}
 
 signal new_build_created()
 signal on_select_object(object)
@@ -122,4 +123,11 @@ func collect_resources():
 				Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
 				Node.set_resource( "w" )
 				UI.add_child(Node)
-		
+
+func end_game(win=true):
+	get_tree().paused = true
+	for i in UI.get_children():
+		i.visible = false
+		if i.name=="EndGamePanel": 
+			i.visible = true
+			if win==false: UI.get_node("EndGamePanel/Button/Label").text = "HAS MUERTO"

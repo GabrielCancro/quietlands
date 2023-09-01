@@ -13,20 +13,21 @@ func _ready():
 
 func set_data():
 	set_button_data($Button1,-1)
-	set_button_data($Button2,-1)
 	if array_actions.size()<=0: return
 	interaction_cost = get_cost(array_actions[index])
 	set_button_data($Button1,index)
+	for b in $HBox.get_children(): 
+		b.visible = (b.get_index()<array_actions.size())
+		if b.get_index() == index: b.modulate = Color(1,1,1,1)
+		else: b.modulate = Color(.2,.2,.2,1)
 	if array_actions.size()==1: return
-	var next = index+1
-	if next >= array_actions.size(): next = 0
-	set_button_data($Button2,next)
 
 func on_change_current_place(node):
 	if node && node.buildType in BuildsFactory.BuildInPlace: 
 		array_actions = BuildsFactory.BuildInPlace[node.buildType]
-	else: array_actions = []
-	index = 0
+		if index>=array_actions.size(): index = 0
+	else: 
+		array_actions = []
 	set_data()
 
 func _process(delta):
@@ -36,6 +37,7 @@ func _process(delta):
 	pressed_time = min(.3, max (0,pressed_time))
 	$Button1.rect_scale = Vector2(1,1)+Vector2(pressed_time,pressed_time)
 	if !$Button1/ResCost.isBuildeable: pressed_time = 0
+	if array_actions[index] in UnitsFactory.UnitNodes && GC.RES.p<=GC.TOTAL_SOLDIERS: pressed_time = 0
 	if(pressed_time >= .3): 
 		pressed_time = 0
 		$Button1.rect_scale = Vector2(1,1)
@@ -62,6 +64,7 @@ func set_button_data(btn,_index):
 		btn.visible = true
 		btn.get_node("Name").text = array_actions[_index]
 		btn.get_node("ResCost").set_cost(get_cost(array_actions[_index]))
+	$HBox.visible = btn.visible
 
 func get_cost(type):
 	if type in BuildsFactory.BuildCosts: return BuildsFactory.BuildCosts[type]

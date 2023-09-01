@@ -2,7 +2,9 @@ extends "res://builds/_BasicBuild.gd"
 
 var endSpawnWave = false
 var spawn_list = [  #Types A:ACUMULATIVE / S:SPECIFIC / I:INCREMENTAL
-	{"day":1, "type":"I", "step":2, "enemy":"GHOST"},
+#	{"day":1, "type":"I", "step":2, "enemy":"GHOST"},
+#	{"day":2, "type":"I", "step":3, "enemy":"GHOST"},
+#	{"day":3, "type":"I", "step":4, "enemy":"GHOST"},
 ]
 
 func init():

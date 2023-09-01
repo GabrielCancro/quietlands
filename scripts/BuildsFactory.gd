@@ -39,7 +39,7 @@ func Build(buildType,pos):
 	return NODE
 
 func Build_in_current_place(buildType):
-	var Place = GC.PLAYER.get_node("Builder").current_place
+	var Place = GC.PLAYER_BUILDER.current_place
 	var pos = Place.position
 	var Build = Build(buildType,pos)
 	Build.inPlace = Place

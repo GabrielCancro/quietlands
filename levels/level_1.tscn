@@ -156,7 +156,7 @@ position = Vector2( 48, 144 )
 position = Vector2( 368, 112 )
 
 [node name="Stone" parent="Resources" instance=ExtResource( 1 )]
-position = Vector2( 288, 128 )
+position = Vector2( 304, 144 )
 
 [node name="Stone2" parent="Resources" instance=ExtResource( 1 )]
 position = Vector2( 432, 304 )
@@ -165,16 +165,16 @@ position = Vector2( 432, 304 )
 position = Vector2( 144, 464 )
 
 [node name="Stone4" parent="Resources" instance=ExtResource( 1 )]
-position = Vector2( -32, 224 )
+position = Vector2( -16, 240 )
 
 [node name="Wood" parent="Resources" instance=ExtResource( 5 )]
 position = Vector2( 336, 336 )
 
 [node name="Wood3" parent="Resources" instance=ExtResource( 5 )]
-position = Vector2( 128, 288 )
+position = Vector2( 112, 272 )
 
 [node name="Wood4" parent="Resources" instance=ExtResource( 5 )]
-position = Vector2( 80, 384 )
+position = Vector2( 80, 400 )
 
 [node name="Wood5" parent="Resources" instance=ExtResource( 5 )]
 position = Vector2( 464, 496 )
@@ -202,10 +202,25 @@ position = Vector2( 640, 480 )
 position = Vector2( 656, 368 )
 
 [node name="Ruins2" parent="Structures" instance=ExtResource( 6 )]
-position = Vector2( 224, 288 )
+position = Vector2( 208, 312 )
 
 [node name="Ruins3" parent="Structures" instance=ExtResource( 6 )]
 position = Vector2( 432, 400 )
+
+[node name="Ruins4" parent="Structures" instance=ExtResource( 6 )]
+position = Vector2( 368, 368 )
+
+[node name="Ruins7" parent="Structures" instance=ExtResource( 6 )]
+position = Vector2( 176, 400 )
+
+[node name="Ruins10" parent="Structures" instance=ExtResource( 6 )]
+position = Vector2( 432, 176 )
+
+[node name="Ruins11" parent="Structures" instance=ExtResource( 6 )]
+position = Vector2( 48, 400 )
+
+[node name="Ruins12" parent="Structures" instance=ExtResource( 6 )]
+position = Vector2( 336, 432 )
 
 [node name="Ruins5" parent="Structures" instance=ExtResource( 6 )]
 position = Vector2( 240, 496 )
@@ -214,7 +229,7 @@ position = Vector2( 240, 496 )
 position = Vector2( 464, 560 )
 
 [node name="Ruins8" parent="Structures" instance=ExtResource( 6 )]
-position = Vector2( 240, 64 )
+position = Vector2( 240, 80 )
 
 [node name="Ruins9" parent="Structures" instance=ExtResource( 6 )]
 position = Vector2( 16, 112 )

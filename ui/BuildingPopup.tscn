@@ -1,20 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ui/ResCost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://fonts/F_RESOURCES_UI.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/Interface/panel1_small.png" type="Texture" id=3]
 [ext_resource path="res://ui/BuildingPopup.gd" type="Script" id=4]
+[ext_resource path="res://assets/fog_white.png" type="Texture" id=5]
 
 [node name="BuildingPopup" type="Control"]
-margin_right = 200.0
-margin_bottom = 60.0
-rect_pivot_offset = Vector2( 100, 30 )
+margin_right = 160.0
+margin_bottom = 50.0
 script = ExtResource( 4 )
 
 [node name="Button1" type="Control" parent="."]
-margin_right = 240.0
-margin_bottom = 64.0
-rect_pivot_offset = Vector2( 120, 32 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 80, 25 )
 
 [node name="BG" type="NinePatchRect" parent="Button1"]
 anchor_right = 1.0
@@ -30,8 +30,8 @@ __meta__ = {
 
 [node name="Name" type="Label" parent="Button1"]
 anchor_right = 1.0
-margin_top = 10.0
-margin_bottom = 37.0
+margin_top = 4.0
+margin_bottom = 31.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "NAME"
@@ -47,51 +47,63 @@ flat = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -36.0
+margin_top = -32.0
 margin_right = 0.0
-margin_bottom = -4.0
-
-[node name="Button2" type="Control" parent="."]
-modulate = Color( 0.588235, 0.588235, 0.588235, 0.784314 )
-margin_top = 64.0
-margin_right = 240.0
-margin_bottom = 128.0
-rect_scale = Vector2( 0.8, 0.8 )
-rect_pivot_offset = Vector2( 130, 32 )
-
-[node name="BG" type="NinePatchRect" parent="Button2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 3 )
-patch_margin_left = 12
-patch_margin_top = 12
-patch_margin_right = 12
-patch_margin_bottom = 12
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Name" type="Label" parent="Button2"]
-anchor_right = 1.0
-margin_top = 10.0
-margin_bottom = 37.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 2 )
-text = "NAME"
-align = 1
-valign = 1
-
-[node name="Button" type="Button" parent="Button2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-flat = true
-
-[node name="ResCost" parent="Button2" instance=ExtResource( 1 )]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -36.0
-margin_right = 0.0
-margin_bottom = -4.0
+margin_bottom = -3.0
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="HBox" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 55.0
+margin_bottom = 17.0
+alignment = 1
+
+[node name="b1" type="TextureRect" parent="HBox"]
+margin_left = 34.0
+margin_right = 46.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 12, 12 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="b2" type="TextureRect" parent="HBox"]
+margin_left = 50.0
+margin_right = 62.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 12, 12 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="b3" type="TextureRect" parent="HBox"]
+margin_left = 66.0
+margin_right = 78.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 12, 12 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="b4" type="TextureRect" parent="HBox"]
+margin_left = 82.0
+margin_right = 94.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 12, 12 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="b5" type="TextureRect" parent="HBox"]
+margin_left = 98.0
+margin_right = 110.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 12, 12 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="b6" type="TextureRect" parent="HBox"]
+margin_left = 114.0
+margin_right = 126.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 12, 12 )
+texture = ExtResource( 5 )
+expand = true

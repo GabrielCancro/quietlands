@@ -23,6 +23,7 @@ loop = true
 script = ExtResource( 4 )
 
 [node name="IA_EnemyBasic" parent="." instance=ExtResource( 2 )]
+speed = 30
 
 [node name="healthComponent" parent="." instance=ExtResource( 1 )]
 
@@ -54,4 +55,4 @@ position = Vector2( 0, -6 )
 texture = ExtResource( 3 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
+neighbor_dist = 5000.0

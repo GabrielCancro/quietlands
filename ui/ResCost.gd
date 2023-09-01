@@ -28,4 +28,4 @@ func set_cost(_cost):
 		Btns[index].visible = true
 		Btns[index].get_node("Sprite").frame = 5
 		index += 1
-	Btns[index].visible = false
+	Btns[index-1].visible = false

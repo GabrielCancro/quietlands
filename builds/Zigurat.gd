@@ -10,4 +10,4 @@ func init():
 func on_dead(healtComponent):
 	GC.ZIGURATS_COUNTER -= 1
 	if GC.ZIGURATS_COUNTER == 0:
-		print("WIN!!!")
+		GC.end_game(true)

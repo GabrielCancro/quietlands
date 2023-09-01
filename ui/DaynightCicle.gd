@@ -19,9 +19,12 @@ func _process(delta):
 		if(_remain_time<=0): 
 			start_night()
 	$Day/TextureProgress.value = (_remain_time/time)*100
+	if isNight: $lb_enemies.text = "Shadows "+str(GC.ENEMIES_FROM_PORTAL)
+	
 
 func start_day():
 	if !isNight: return
+	$lb_enemies.visible = false
 	day += 1
 	isNight = false
 	_remain_time = time
@@ -33,6 +36,7 @@ func start_day():
 
 func start_night():
 	if isNight: return
+	$lb_enemies.visible = true
 	_remain_time = 0
 	isNight = true
 	$Day/Label.text = "NOCHE "+str(day)
@@ -41,5 +45,4 @@ func start_night():
 	emit_signal("change_time",day,isNight)
 
 func onClick():
-	if(isNight): start_day()
-	else: start_night()
+	if(!isNight): start_night()
