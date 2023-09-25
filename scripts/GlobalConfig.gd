@@ -8,14 +8,16 @@ var PLAYER
 var PLAYER_BUILDER
 var NAV2D
 var LINE2D
+var CONNECTOR
 var WORLD
 var TILEMAP
 var RES_POPUP
 var EFFECTOR
 var HEALTHS = []
+var RESOURCE_NODES = [] # resources nodes of map
 var ENEMIES_FROM_PORTAL = 0
 var TOTAL_SOLDIERS = 0
-var ZIGURATS_COUNTER = 0
+var DARK_CRISTAL_COUNTER = 0
 var object_selected = null
 var RES = {"f":5, "w":5, "s":5, "p":0}
 

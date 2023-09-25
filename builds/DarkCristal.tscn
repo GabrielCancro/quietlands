@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Elements/obj_dark_cristal_small.png" type="Texture" id=1]
+[ext_resource path="res://attacks/healthComponent.tscn" type="PackedScene" id=2]
+[ext_resource path="res://attacks/weapon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/light_less.png" type="Texture" id=4]
+[ext_resource path="res://builds/DarkCristal.gd" type="Script" id=5]
+[ext_resource path="res://assets/fog.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.0
+
+[node name="DarkCristal" type="StaticBody2D"]
+script = ExtResource( 5 )
+
+[node name="healthComponent" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -11 )
+hpMax = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Weapon" parent="." instance=ExtResource( 3 )]
+cooldown = 2.0
+ran = 80
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 4 )
+texture_scale = 4.0
+color = Color( 1, 0, 0, 1 )
+energy = 0.6
+mode = 2
+
+[node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.254902 )
+position = Vector2( 0, 0.200619 )
+scale = Vector2( 0.2, 0.15 )
+texture = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -15 )
+texture = ExtResource( 1 )

@@ -42,6 +42,7 @@ func Build_in_current_place(buildType):
 	var Place = GC.PLAYER_BUILDER.current_place
 	var pos = Place.position
 	var Build = Build(buildType,pos)
+	if Build.team == 1: GC.CONNECTOR.connect_near_builds(Build)
 	Build.inPlace = Place
 	if buildType == "EXTRACTOR": 
 		Build.extractor_type = Place.buildType
@@ -53,5 +54,6 @@ func Build_in_current_place(buildType):
 	return Build
 
 func on_dead_build(healthComponent):
+	BUILDINGS.erase(healthComponent.get_parent())
 	var Place = healthComponent.get_parent().inPlace
 	if Place.has_method("set_enabled"): Place.set_enabled(true)

@@ -18,6 +18,6 @@ func _process(delta):
 func try_shot():
 	var candidate = GC.get_most_close_health(get_parent(),ran)
 	if candidate:
-		UnitsFactory.spawn_bullet(global_position,candidate)
+		UnitsFactory.spawn_bullet(global_position+Vector2(0,-5),candidate)
 		_counter_cooldown = 0;
 		emit_signal("attack",candidate)
