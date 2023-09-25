@@ -25,7 +25,7 @@ script = ExtResource( 4 )
 [node name="IA_SoldierBasic" parent="." instance=ExtResource( 2 )]
 
 [node name="healthComponent" parent="." instance=ExtResource( 1 )]
-hpMax = 20
+hpMax = 10
 
 [node name="Weapon" parent="." instance=ExtResource( 5 )]
 cooldown = 1.5

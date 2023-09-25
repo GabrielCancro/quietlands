@@ -1,7 +1,7 @@
 extends Node2D
 
 export var speed = 30
-export var max_distance = 170
+export var max_distance = 70
 var dir
 var distance
 var target = null
@@ -20,6 +20,7 @@ func _process(delta):
 	if !is_instance_valid(target): 
 		target = GC.PLAYER
 		return
+	if global_position.distance_to(GC.PLAYER.position)>max_distance: target = GC.PLAYER
 	if target == GC.PLAYER && global_position.distance_to(target.position)<35: return
 	if target == GC.PLAYER && global_position.distance_to(target.position)>50: spd_modif = global_position.distance_to(target.position)/30
 	else: spd_modif = 1

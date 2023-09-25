@@ -13,6 +13,6 @@ func _ready():
 
 func init():
 	pass
-	
+
 func set_enabled(val):
 	isEnabled = val

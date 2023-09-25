@@ -67,6 +67,7 @@ modulate = Color( 0, 0.0156863, 1, 0.101961 )
 shape = SubResource( 7 )
 
 [node name="Connector_paths" type="Node2D" parent="World"]
+visible = false
 z_index = 1
 script = ExtResource( 4 )
 
