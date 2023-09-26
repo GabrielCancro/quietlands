@@ -42,18 +42,22 @@ func Build_in_current_place(buildType):
 	var Place = GC.PLAYER_BUILDER.current_place
 	var pos = Place.position
 	var Build = Build(buildType,pos)
-	if Build.team == 1: GC.CONNECTOR.connect_near_builds(Build)
+	if Build.team == 1: GC.active_near_builds(Build)
 	Build.inPlace = Place
 	if buildType == "EXTRACTOR": 
 		Build.extractor_type = Place.buildType
 		Build.position -= Vector2(10,7)
-	if Place.has_method("set_enabled"): 
-		Place.set_enabled(false)
-		Build.get_node("healthComponent").connect("dead",self,"on_dead_build")
+		Place.isBuilded = true
+		Build.get_node("healthComponent").connect("dead",self,"on_dead_build_free_resource")
+	if Place.buildType == "RUINS": 
+		Place.isBuilded = true
+		Place.visible = false
+		Build.get_node("healthComponent").connect("dead",self,"on_dead_build_free_resource")
 	GC.set_z_index_to(Build)
 	return Build
 
-func on_dead_build(healthComponent):
+func on_dead_build_free_resource(healthComponent):
 	BUILDINGS.erase(healthComponent.get_parent())
 	var Place = healthComponent.get_parent().inPlace
-	if Place.has_method("set_enabled"): Place.set_enabled(true)
+	Place.isBuilded = false
+	Place.visible = true

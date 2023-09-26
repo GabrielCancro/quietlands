@@ -18,3 +18,4 @@ func load_level(id):
 	LEVEL.remove_child(GC.TILEMAP)
 	GC.PLAYER.position = LEVEL.get_node("StartPosition").position
 	GC.WORLD.add_child(GC.TILEMAP)
+	GC.active_near_builds(GC.PLAYER)

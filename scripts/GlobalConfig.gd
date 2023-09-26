@@ -8,13 +8,12 @@ var PLAYER
 var PLAYER_BUILDER
 var NAV2D
 var LINE2D
-var CONNECTOR
 var WORLD
 var TILEMAP
 var RES_POPUP
 var EFFECTOR
 var HEALTHS = []
-var RESOURCE_NODES = [] # resources nodes of map
+var RESOURCE_NODES = [] # resources and ruins nodes of map
 var ENEMIES_FROM_PORTAL = 0
 var TOTAL_SOLDIERS = 0
 var DARK_CRISTAL_COUNTER = 0
@@ -133,3 +132,8 @@ func end_game(win=true):
 		if i.name=="EndGamePanel": 
 			i.visible = true
 			if win==false: UI.get_node("EndGamePanel/Button/Label").text = "HAS MUERTO"
+
+func active_near_builds(Build):
+	for b in RESOURCE_NODES:
+		if(b.global_position.distance_to(Build.global_position)<120):
+			if !b.isEnabled: b.set_enabled(true)

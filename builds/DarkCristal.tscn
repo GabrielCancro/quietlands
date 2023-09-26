@@ -14,7 +14,7 @@ radius = 8.0
 script = ExtResource( 5 )
 
 [node name="healthComponent" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, -11 )
+position = Vector2( 0, -14 )
 hpMax = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -25,6 +25,7 @@ cooldown = 2.0
 ran = 80
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 texture = ExtResource( 4 )
 texture_scale = 4.0
 color = Color( 1, 0, 0, 1 )
@@ -32,11 +33,19 @@ energy = 0.6
 mode = 2
 
 [node name="Sprite2" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.254902 )
-position = Vector2( 0, 0.200619 )
+modulate = Color( 1, 0, 0, 0.392157 )
+scale = Vector2( 3, 3 )
+z_index = 1
+z_as_relative = false
+texture = ExtResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 0.392157 )
 scale = Vector2( 0.2, 0.15 )
+z_index = 1
+z_as_relative = false
 texture = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -15 )
+position = Vector2( 0, -18 )
 texture = ExtResource( 1 )

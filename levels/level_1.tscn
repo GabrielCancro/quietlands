@@ -195,7 +195,7 @@ position = Vector2( -16, 48 )
 [node name="Deco" type="StaticBody2D" parent="."]
 
 [node name="StartPosition" type="Node2D" parent="."]
-position = Vector2( 640, 480 )
+position = Vector2( 608, 384 )
 
 [node name="Structures" type="Node2D" parent="."]
 
