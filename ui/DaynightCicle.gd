@@ -46,4 +46,4 @@ func start_night():
 
 func onClick():
 	if(!isNight): start_night()
-	else: start_day()
+#	else: start_day()
