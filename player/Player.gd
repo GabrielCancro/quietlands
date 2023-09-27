@@ -8,6 +8,7 @@ var team = 1
 
 func _ready():
 	GC.PLAYER = self
+	GC.CAMERA = $Camera2D
 	$healthComponent.connect("dead",self,"on_dead")
 	$healthComponent.dont_free_on_dead = true
 

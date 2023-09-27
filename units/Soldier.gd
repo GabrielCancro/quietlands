@@ -4,7 +4,6 @@ var unitType
 var team = 1
 
 func _ready():
-	$AnimationPlayer.play("Idle")
 	$Weapon.connect("attack",self,"on_attack")
 	if team==1: 
 		GC.TOTAL_SOLDIERS += 1

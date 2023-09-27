@@ -5,9 +5,8 @@ var UI
 var DAYNIGHT
 var POINTER
 var PLAYER
+var CAMERA
 var PLAYER_BUILDER
-var NAV2D
-var LINE2D
 var WORLD
 var TILEMAP
 var RES_POPUP
@@ -110,20 +109,24 @@ func collect_resources():
 		if !is_instance_valid(bld): continue
 		if !bld.get("buildType"): continue
 		if bld.buildType == "EXTRACTOR":
+			change_camera_follow(bld)
+			yield(get_tree().create_timer(.5),"timeout")
 			for i in range(bld.amount_res):
+				recollect_one_resource_ui( bld.extractor_type.substr(0,1).to_lower() )
 				yield(get_tree().create_timer(.5),"timeout")
-				var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
-				Node.set_resource( bld.extractor_type.substr(0,1).to_lower() )
-				UI.add_child(Node)
-		if bld.buildType == "CASTLE":
+				bld.inPlace.amount -= 1
+			print(bld.inPlace.name+" le queda: "+str(bld.inPlace.amount))
+			if(bld.inPlace.amount<=0):
+				destroy_structure(bld)
+				yield(get_tree().create_timer(1),"timeout")
+		elif bld.buildType == "CASTLE":
+				change_camera_follow(bld)
 				yield(get_tree().create_timer(.5),"timeout")
-				var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
-				Node.set_resource( "f" )
-				UI.add_child(Node)
+				recollect_one_resource_ui( "f" )
 				yield(get_tree().create_timer(.5),"timeout")
-				Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
-				Node.set_resource( "w" )
-				UI.add_child(Node)
+				recollect_one_resource_ui( "w" )
+				yield(get_tree().create_timer(.5),"timeout")
+		change_camera_follow(GC.PLAYER)
 
 func end_game(win=true):
 	get_tree().paused = true
@@ -137,3 +140,22 @@ func active_near_builds(Build):
 	for b in RESOURCE_NODES:
 		if(b.global_position.distance_to(Build.global_position)<120):
 			if !b.isEnabled: b.set_enabled(true)
+
+func change_camera_follow(node):
+	CAMERA.global_position = node.global_position 
+
+func recollect_one_resource_ui(type):
+	var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
+	Node.set_resource( type )
+	UI.add_child(Node)
+
+func destroy_structure(structure):
+	if "inPlace" in structure && structure.inPlace:
+		RESOURCE_NODES.erase(structure.inPlace)
+		structure.inPlace.queue_free()
+	HEALTHS.erase(structure)
+	BuildsFactory.BUILDINGS.erase(structure)
+	(TILEMAP as TileMap).set_cell( floor(structure.position.x/TILEMAP.cell_size.x), floor(structure.position.y/TILEMAP.cell_size.y), 0)
+	structure.queue_free()
+	EFFECTOR.shine(structure.global_position)
+	

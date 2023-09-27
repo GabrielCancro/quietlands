@@ -36,4 +36,4 @@ func update_location_loop():
 	if is_instance_valid(target):
 		_agent.set_target_location(target.position)
 	yield(get_tree().create_timer(.5),"timeout")
-	update_location_loop()
+	if(is_instance_valid(self)): update_location_loop()

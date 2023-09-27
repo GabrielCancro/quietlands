@@ -2,12 +2,10 @@ extends Node2D
 
 func _ready():
 	GC.GAME = self
-	GC.LINE2D = $World/Line2D
 	GC.WORLD = $World
 	#$Camera2D/CenterPointer.connect("change_over_object",$UI,"on_pointer_change")
 	#$Pointer.connect("change_over_object",$UI,"on_pointer_change")
 	GC.connect("on_select_object",$UI,"on_select_object")
-	GC.connect("on_select_object",$Selector,"on_select_object")
 	#$World/TileFog.visible = true
 	load_level(1)
 
