@@ -145,7 +145,7 @@ tile_data = PoolIntArray( -393219, 0, 0, -393218, 0, 1, -393217, 0, 2, -327685, 
 position = Vector2( 144, 208 )
 
 [node name="Food2" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 272, 400 )
+position = Vector2( 496, 560 )
 
 [node name="Food3" parent="Resources" instance=ExtResource( 7 )]
 position = Vector2( 528, 336 )
@@ -169,7 +169,7 @@ position = Vector2( 144, 464 )
 position = Vector2( -16, 240 )
 
 [node name="Wood" parent="Resources" instance=ExtResource( 5 )]
-position = Vector2( 336, 336 )
+position = Vector2( 304, 368 )
 
 [node name="Wood3" parent="Resources" instance=ExtResource( 5 )]
 position = Vector2( 112, 272 )
@@ -178,7 +178,7 @@ position = Vector2( 112, 272 )
 position = Vector2( 80, 400 )
 
 [node name="Wood5" parent="Resources" instance=ExtResource( 5 )]
-position = Vector2( 464, 496 )
+position = Vector2( 400, 528 )
 
 [node name="Wood6" parent="Resources" instance=ExtResource( 5 )]
 position = Vector2( 464, 240 )
@@ -195,7 +195,7 @@ position = Vector2( -16, 48 )
 [node name="Deco" type="StaticBody2D" parent="."]
 
 [node name="StartPosition" type="Node2D" parent="."]
-position = Vector2( 608, 384 )
+position = Vector2( 464, 528 )
 
 [node name="Structures" type="Node2D" parent="."]
 
@@ -206,10 +206,10 @@ position = Vector2( 656, 368 )
 position = Vector2( 208, 312 )
 
 [node name="Ruins3" parent="Structures" instance=ExtResource( 6 )]
-position = Vector2( 432, 400 )
+position = Vector2( 464, 464 )
 
 [node name="Ruins4" parent="Structures" instance=ExtResource( 6 )]
-position = Vector2( 368, 368 )
+position = Vector2( 432, 368 )
 
 [node name="Ruins7" parent="Structures" instance=ExtResource( 6 )]
 position = Vector2( 176, 400 )
@@ -224,10 +224,10 @@ position = Vector2( 48, 400 )
 position = Vector2( 336, 432 )
 
 [node name="Ruins5" parent="Structures" instance=ExtResource( 6 )]
-position = Vector2( 240, 496 )
+position = Vector2( 240, 464 )
 
 [node name="Ruins6" parent="Structures" instance=ExtResource( 6 )]
-position = Vector2( 464, 560 )
+position = Vector2( 560, 400 )
 
 [node name="Ruins8" parent="Structures" instance=ExtResource( 6 )]
 position = Vector2( 240, 80 )
