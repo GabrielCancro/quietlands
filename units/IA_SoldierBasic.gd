@@ -24,8 +24,8 @@ func _process(delta):
 		get_node("../AnimatedSprite").play("idle")
 		return
 	if global_position.distance_to(GC.PLAYER.position)>max_distance: target = GC.PLAYER
-	if target == GC.PLAYER && global_position.distance_to(target.position)<35: return
-	if target == GC.PLAYER && global_position.distance_to(target.position)>50: spd_modif = global_position.distance_to(target.position)/30
+	if target == GC.PLAYER && global_position.distance_to(target.position)<35: spd_modif = -1
+	elif target == GC.PLAYER && global_position.distance_to(target.position)>60: spd_modif = global_position.distance_to(target.position)/30
 	else: spd_modif = 1
 	
 	dir = global_position.direction_to(target.position)
