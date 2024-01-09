@@ -170,4 +170,11 @@ func destroy_structure(structure):
 	#(TILEMAP as TileMap).set_cell( floor(structure.position.x/TILEMAP.cell_size.x), floor(structure.position.y/TILEMAP.cell_size.y), 0)
 	structure.queue_free()
 	EFFECTOR.shine(structure.global_position)
-	
+
+func clear_fog_range(pos,ran):
+	var fogMap = (GAME.get_node("World/FogTileMap") as TileMap)
+	fogMap.set_cell(pos.x,pos.y,-1)
+	for _x in range(-ran,ran+1):
+		for _y in range(-ran,ran+1):
+			if Vector2(_x,_y).distance_to(Vector2.ZERO)>ran: continue
+			fogMap.set_cell(pos.x+_x,pos.y+_y,-1)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player_horse_small.png-b4b8f286c4c8f3540b542c26aecdcdd3.stex"
+path="res://.import/fog1b.png-6e92d201031e0ffe2efa9b2978a82e11.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Units/player_horse_small.png"
-dest_files=[ "res://.import/player_horse_small.png-b4b8f286c4c8f3540b542c26aecdcdd3.stex" ]
+source_file="res://assets/Map/fog1b.png"
+dest_files=[ "res://.import/fog1b.png-6e92d201031e0ffe2efa9b2978a82e11.stex" ]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://OLD_prefabs/Light2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Units/player_horse.png" type="Texture" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://attacks/weapon.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 9.0
+radius = 7.07107
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 4 )
@@ -31,7 +31,37 @@ tracks/0/keys = {
 "values": [ Vector2( 0.7, 0.7 ), Vector2( 0.6, 0.8 ), Vector2( 0.7, 0.7 ) ]
 }
 
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 3
 script = ExtResource( 3 )
 
 [node name="healthComponent" parent="." instance=ExtResource( 6 )]
@@ -44,6 +74,7 @@ hpMax = 25
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 material = SubResource( 3 )
 position = Vector2( 0, -9 )
 scale = Vector2( 0.7, 0.7 )
@@ -57,4 +88,12 @@ current = true
 smoothing_enabled = true
 
 [node name="Light2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2, -8 )
 texture_scale = 0.8
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -15 )
+frames = SubResource( 8 )
+animation = "walk"
+frame = 1
+playing = true
