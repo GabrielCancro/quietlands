@@ -7,5 +7,5 @@ func init():
 
 func set_enabled(val):
 	.set_enabled(val)
-	modulate = Color(.5,.3,.3,1)
+	modulate = Color(.5,.5,.5,.2)
 	if isEnabled: modulate = Color(1,1,1,1)

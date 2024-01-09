@@ -13,7 +13,7 @@ bg_color = Color( 0.74902, 1, 0.266667, 1 )
 bg_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 6.0
+radius = 4.0
 
 [sub_resource type="Animation" id=8]
 resource_name = "Idle"
@@ -52,7 +52,8 @@ shape = SubResource( 5 )
 anims/Idle = SubResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -6 )
+position = Vector2( 0, -4 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 3 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

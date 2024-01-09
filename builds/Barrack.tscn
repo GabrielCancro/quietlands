@@ -22,5 +22,4 @@ position = Vector2( 0, -7 )
 texture = ExtResource( 1 )
 
 [node name="Light2D" parent="." instance=ExtResource( 4 )]
-texture_scale = 2.0
-energy = 0.9
+texture_scale = 0.4

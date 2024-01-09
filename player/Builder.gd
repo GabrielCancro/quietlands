@@ -17,7 +17,7 @@ func check_places(body):
 	if !GC.DAYNIGHT.isNight:
 		for place in get_overlapping_bodies():
 			if "buildType" in place && place.isEnabled:
-				if "isBuilded" in place && place.isBuilded: continue
+				#if "isBuilded" in place && place.isBuilded: continue
 				current_place = place
 				break
 #	if(current_place):

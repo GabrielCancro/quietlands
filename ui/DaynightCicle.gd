@@ -5,6 +5,7 @@ var time = 60
 var _remain_time = 0
 var isNight = true
 onready var CanvasModulate = get_node("/root/Game/CanvasModulate")
+onready var DarknessNode = get_node("/root/Game/Darkness")
 
 signal change_time(day,isNight)
 
@@ -30,6 +31,8 @@ func start_day():
 	_remain_time = time
 	$Day/Label.text = "DIA "+str(day)
 	$Tween.interpolate_property(CanvasModulate,"color",CanvasModulate.color,Color(.1,.1,.1,1),1.0)
+	$Tween.interpolate_property(DarknessNode,"color",DarknessNode.color,Color(0,0,0,0),1.0)
+	DarknessNode
 	$Tween.start()
 	emit_signal("change_time",day,isNight)
 	GC.collect_resources()
@@ -41,6 +44,7 @@ func start_night():
 	isNight = true
 	$Day/Label.text = "NOCHE "+str(day)
 	$Tween.interpolate_property(CanvasModulate,"color",CanvasModulate.color,Color(0,0,0,1),1.0)
+	$Tween.interpolate_property(DarknessNode,"color",DarknessNode.color,Color(0,0,0,.2),1.0)
 	$Tween.start()
 	emit_signal("change_time",day,isNight)
 

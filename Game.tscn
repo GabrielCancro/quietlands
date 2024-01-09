@@ -3,10 +3,10 @@
 [ext_resource path="res://player/Builder.gd" type="Script" id=1]
 [ext_resource path="res://fonts/F_UPPER_PLAYERt.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ui/EndGamePanel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/PlaceNameUi.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/UI.gd" type="Script" id=5]
 [ext_resource path="res://Game.gd" type="Script" id=7]
 [ext_resource path="res://effects/Effector.tscn" type="PackedScene" id=8]
-[ext_resource path="res://ui/BuildMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ui/BuildingPopup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/DaynightCicle.tscn" type="PackedScene" id=14]
 [ext_resource path="res://shaders/noise_texture.tres" type="Texture" id=16]
@@ -41,7 +41,6 @@ margin_right = 1157.0
 margin_bottom = 780.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
 
 [node name="World" type="Navigation2D" parent="."]
 
@@ -65,6 +64,15 @@ valign = 1
 modulate = Color( 0, 0.0156863, 1, 0.101961 )
 shape = SubResource( 7 )
 
+[node name="Darkness" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -500.0
+margin_top = -300.0
+margin_right = 1157.0
+margin_bottom = 780.0
+color = Color( 0, 0, 0, 0 )
+
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource( 5 )
 
@@ -84,19 +92,24 @@ text = "BUILD"
 margin_right = -544.0
 margin_bottom = -288.0
 
-[node name="BuildMenu" parent="UI" instance=ExtResource( 9 )]
-visible = false
-
 [node name="ResHeader" parent="UI" instance=ExtResource( 23 )]
 margin_left = -248.0
+
+[node name="PlaceNameUi" parent="UI" instance=ExtResource( 4 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -80.5
+margin_top = -8.0
+margin_right = 80.5
+margin_bottom = 33.0
 
 [node name="BuildingPopup" parent="UI" instance=ExtResource( 11 )]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -81.5
-margin_top = 7.0
+margin_top = 25.0
 margin_right = 81.5
-margin_bottom = 57.0
+margin_bottom = 75.0
 
 [node name="EndGamePanel" parent="UI" instance=ExtResource( 3 )]
 visible = false

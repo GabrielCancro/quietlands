@@ -71,14 +71,15 @@ func set_z_index_to(obj,offset=0):
 	obj.z_index = 100+floor(obj.position.y/10)+offset
 
 func clear_fog(pos,rad):
-	if rad<=0: return;
-	pos = Vector2(floor(pos.x/32),floor(pos.y/32))
-	var Tile = GAME.get_node("World/TileFog") as TileMap
-	for ix in range(-rad,rad+1):
-		for iy in range(-rad,rad+1):
-			if(abs(ix)+abs(iy)>rad+1): continue
-			Tile.set_cell(pos.x+ix,pos.y+iy,-1)
-			print( str(pos)+"  "+str( Tile.get_cell(pos.x+ix,pos.y+iy) ) )
+	pass
+#	if rad<=0: return;
+#	pos = Vector2(floor(pos.x/32),floor(pos.y/32))
+#	var Tile = GAME.get_node("World/TileFog") as TileMap
+#	for ix in range(-rad,rad+1):
+#		for iy in range(-rad,rad+1):
+#			if(abs(ix)+abs(iy)>rad+1): continue
+#			Tile.set_cell(pos.x+ix,pos.y+iy,-1)
+#			print( str(pos)+"  "+str( Tile.get_cell(pos.x+ix,pos.y+iy) ) )
 
 func get_bbcode_cost(cost):
 	var bbcode = "[center]"
@@ -108,25 +109,26 @@ func collect_resources():
 	for bld in GC.HEALTHS:
 		if !is_instance_valid(bld): continue
 		if !bld.get("buildType"): continue
-		if bld.buildType == "EXTRACTOR":
-			change_camera_follow(bld)
-			yield(get_tree().create_timer(.5),"timeout")
-			for i in range(bld.amount_res):
-				recollect_one_resource_ui( bld.extractor_type.substr(0,1).to_lower() )
-				yield(get_tree().create_timer(.5),"timeout")
-				bld.inPlace.amount -= 1
-			print(bld.inPlace.name+" le queda: "+str(bld.inPlace.amount))
-			if(bld.inPlace.amount<=0):
-				destroy_structure(bld)
-				yield(get_tree().create_timer(1),"timeout")
-		elif bld.buildType == "CASTLE":
-				change_camera_follow(bld)
-				yield(get_tree().create_timer(.5),"timeout")
-				recollect_one_resource_ui( "f" )
-				yield(get_tree().create_timer(.5),"timeout")
-				recollect_one_resource_ui( "w" )
-				yield(get_tree().create_timer(.5),"timeout")
-		change_camera_follow(GC.PLAYER)
+		if bld.has_method("on_collect_phase"): bld.on_collect_phase()
+#		if bld.buildType == "EXTRACTOR":
+#			change_camera_follow(bld)
+#			yield(get_tree().create_timer(.5),"timeout")
+#			for i in range(bld.amount_res):
+#				recollect_one_resource_ui( bld.extractor_type.substr(0,1).to_lower() )
+#				yield(get_tree().create_timer(.5),"timeout")
+#				bld.inPlace.amount -= 1
+#			print(bld.inPlace.name+" le queda: "+str(bld.inPlace.amount))
+#			if(bld.inPlace.amount<=0):
+#				destroy_structure(bld)
+#				yield(get_tree().create_timer(1),"timeout")
+#		elif bld.buildType == "CASTLE":
+#				change_camera_follow(bld)
+#				yield(get_tree().create_timer(.5),"timeout")
+#				recollect_one_resource_ui( "f" )
+#				yield(get_tree().create_timer(.5),"timeout")
+#				recollect_one_resource_ui( "w" )
+#				yield(get_tree().create_timer(.5),"timeout")
+#		change_camera_follow(GC.PLAYER)
 
 func end_game(win=true):
 	get_tree().paused = true
@@ -138,16 +140,26 @@ func end_game(win=true):
 
 func active_near_builds(Build):
 	for b in RESOURCE_NODES:
+		if !is_instance_valid(b):
+			RESOURCE_NODES.erase(b)
+			continue
 		if(b.global_position.distance_to(Build.global_position)<120):
 			if !b.isEnabled: b.set_enabled(true)
 
 func change_camera_follow(node):
 	CAMERA.global_position = node.global_position 
 
-func recollect_one_resource_ui(type):
+#func recollect_one_resource_ui(type):
+#	var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
+#	Node.set_resource( type )
+#	UI.add_child(Node)
+
+func collect_one_resource(type,pos,delay=0):
+	yield(get_tree().create_timer(delay),"timeout")
 	var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
+	Node.rect_global_position = pos
 	Node.set_resource( type )
-	UI.add_child(Node)
+	GAME.add_child(Node)
 
 func destroy_structure(structure):
 	if "inPlace" in structure && structure.inPlace:
@@ -155,7 +167,7 @@ func destroy_structure(structure):
 		structure.inPlace.queue_free()
 	HEALTHS.erase(structure)
 	BuildsFactory.BUILDINGS.erase(structure)
-	(TILEMAP as TileMap).set_cell( floor(structure.position.x/TILEMAP.cell_size.x), floor(structure.position.y/TILEMAP.cell_size.y), 0)
+	#(TILEMAP as TileMap).set_cell( floor(structure.position.x/TILEMAP.cell_size.x), floor(structure.position.y/TILEMAP.cell_size.y), 0)
 	structure.queue_free()
 	EFFECTOR.shine(structure.global_position)
 	

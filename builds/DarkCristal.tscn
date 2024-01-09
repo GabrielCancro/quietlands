@@ -24,16 +24,8 @@ shape = SubResource( 1 )
 cooldown = 2.0
 ran = 80
 
-[node name="Light2D" type="Light2D" parent="."]
-visible = false
-texture = ExtResource( 4 )
-texture_scale = 4.0
-color = Color( 1, 0, 0, 1 )
-energy = 0.6
-mode = 2
-
 [node name="Sprite2" type="Sprite" parent="."]
-modulate = Color( 1, 0, 0, 0.392157 )
+modulate = Color( 1, 0, 0, 0.266667 )
 scale = Vector2( 3, 3 )
 z_index = 1
 z_as_relative = false
