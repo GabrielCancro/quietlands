@@ -14,6 +14,8 @@ func _process(delta):
 	if($Sprite.visible):
 		$Sprite.global_position = current_place.global_position
 		$Sprite.z_index = current_place.z_index-10
+		var hc = current_place.get_node_or_null("healthComponent")
+		if hc: hc.show_healthbar()
 
 func check_places(body):
 	current_place = null

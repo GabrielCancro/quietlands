@@ -20,11 +20,14 @@ func _process(delta):
 
 func get_damage(dam=1):
 	hp -= dam
-	show_time = 2
-	$TextureProgress.value = float(hp)/float(hpMax)*100
+	show_healthbar()
 	#print("DAM ",get_parent().name," ",hp,"/",hpMax)
 	emit_signal("receive_damage",self)
 	if(hp<=0): 
 		GC.EFFECTOR.dead_fx(global_position)
 		emit_signal("dead",self)
 		if !dont_free_on_dead: get_parent().queue_free()
+
+func show_healthbar(time=2):
+	$TextureProgress.value = float(hp)/float(hpMax)*100
+	show_time = 2

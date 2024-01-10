@@ -19,7 +19,7 @@ func set_data():
 	for b in $HBox.get_children(): 
 		b.visible = (b.get_index()<array_actions.size())
 		if b.get_index() == index: b.modulate = Color(1,1,1,1)
-		else: b.modulate = Color(.2,.2,.2,1)
+		else: b.modulate = Color(.2,.4,.2,1)
 	if array_actions.size()==1: return
 
 func on_change_current_place(node):

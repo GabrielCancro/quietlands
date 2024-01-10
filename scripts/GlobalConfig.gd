@@ -163,8 +163,7 @@ func collect_one_resource(type,pos,delay=0):
 
 func destroy_structure(structure):
 	if "inPlace" in structure && structure.inPlace:
-		RESOURCE_NODES.erase(structure.inPlace)
-		structure.inPlace.queue_free()
+		BuildsFactory.Build(structure.inPlace,structure.position)
 	HEALTHS.erase(structure)
 	BuildsFactory.BUILDINGS.erase(structure)
 	#(TILEMAP as TileMap).set_cell( floor(structure.position.x/TILEMAP.cell_size.x), floor(structure.position.y/TILEMAP.cell_size.y), 0)

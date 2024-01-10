@@ -1,5 +1,7 @@
 extends Node
 
+signal build_one(node)
+
 var BuildNodes = {
 	"WOOD": preload("res://builds/Wood.tscn"),
 	"FOOD": preload("res://builds/Food.tscn"),
@@ -13,6 +15,8 @@ var BuildNodes = {
 	"EXT_WOOD": preload("res://builds/ExtractorWood.tscn"),
 	"EXT_STONE": preload("res://builds/ExtractorStone.tscn"),
 	"CASTLE": preload("res://builds/Castle.tscn"),
+	"OUTPOST": preload("res://builds/Outpost.tscn"),
+	"TOWER": preload("res://builds/Tower.tscn"),
 }
 
 var BuildCosts = {
@@ -22,13 +26,15 @@ var BuildCosts = {
 	"EXT_WOOD": {"w":2},
 	"EXT_STONE": {"w":2},
 	"CASTLE": {"s":5},
+	"OUTPOST": {"w":2},
+	"TOWER": {"s":2},
 }
 
 var BuildInPlace = {
 	"FOOD": ["EXT_FOOD"],
 	"WOOD": ["EXT_WOOD"],
 	"STONE": ["EXT_STONE"],
-	"DEBRIS": ["HOUSE"],
+	"DEBRIS": ["HOUSE","OUTPOST"],
 	"RUINS": ["CASTLE", "HOUSE","BARRACK"],
 	"BARRACK": ["MILICIAN"],
 	"CASTLE": [],
@@ -36,6 +42,7 @@ var BuildInPlace = {
 	"EXT_FOOD": [],
 	"EXT_WOOD": [],
 	"EXT_STONE": [],
+	"OUTPOST": ["TOWER"],
 }
 
 var BUILDINGS = []
@@ -56,6 +63,7 @@ func Build(buildType,pos,isEnabled=true):
 	if hc && NODE.has_method("on_dead"): 
 		hc.connect("dead",NODE,"on_dead")
 		print("CONNECT ON DEAD TO ", NODE.name)
+	emit_signal("build_one",NODE)
 	return NODE
 
 func Build_in_current_place(buildType):
@@ -65,7 +73,7 @@ func Build_in_current_place(buildType):
 	#if Build.team == 1: GC.active_near_builds(Build)
 	if Build.team == 1: GC.clear_fog_range(Build.global_position/32,3)
 	Place.queue_free()
-#	Build.inPlace = Place
+	Build.inPlace = Place.buildType
 #	if buildType == "EXTRACTOR": 
 #		Build.extractor_type = Place.buildType
 #		Build.position -= Vector2(10,7)

@@ -33,7 +33,7 @@ func start_day():
 	$Day/Label.text = "DIA "+str(day)
 #	$Tween.interpolate_property(CanvasModulate,"color",CanvasModulate.color,Color(.1,.1,.1,1),1.0)
 	$Tween.interpolate_property(DarknessNode,"color",DarknessNode.color,Color(0,0,0,0),1.0)
-	$Tween.interpolate_property(FogTileMap,"modulate",FogTileMap.modulate,Color(.8,.8,.8,1),1.0)
+	$Tween.interpolate_property(FogTileMap,"modulate",FogTileMap.modulate,Color(.5,.5,.5,1),1.0)
 	DarknessNode
 	$Tween.start()
 	emit_signal("change_time",day,isNight)
@@ -47,7 +47,7 @@ func start_night():
 	$Day/Label.text = "NOCHE "+str(day)
 #	$Tween.interpolate_property(CanvasModulate,"color",CanvasModulate.color,Color(0,0,0,1),1.0)
 	$Tween.interpolate_property(DarknessNode,"color",DarknessNode.color,Color(0,0,.8,.2),1.0)
-	$Tween.interpolate_property(FogTileMap,"modulate",FogTileMap.modulate,Color(.3,.3,.3,1),1.0)
+	$Tween.interpolate_property(FogTileMap,"modulate",FogTileMap.modulate,Color(.2,.2,.7,1),1.0)
 	$Tween.start()
 	emit_signal("change_time",day,isNight)
 
