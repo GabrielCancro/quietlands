@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://player/Builder.gd" type="Script" id=1]
 [ext_resource path="res://fonts/F_UPPER_PLAYERt.tres" type="DynamicFont" id=2]
@@ -10,20 +10,8 @@
 [ext_resource path="res://effects/Effector.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/BuildingPopup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/DaynightCicle.tscn" type="PackedScene" id=14]
-[ext_resource path="res://shaders/noise_texture.tres" type="Texture" id=16]
-[ext_resource path="res://shaders/Ground.png" type="Texture" id=17]
-[ext_resource path="res://shaders/wave.png" type="Texture" id=18]
-[ext_resource path="res://shaders/wave2.png" type="Texture" id=19]
-[ext_resource path="res://shaders/2d_simple_water.gdshader" type="Shader" id=20]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=21]
 [ext_resource path="res://ui/ResHeader.tscn" type="PackedScene" id=23]
-
-[sub_resource type="ShaderMaterial" id=6]
-shader = ExtResource( 20 )
-shader_param/bg = ExtResource( 17 )
-shader_param/wave1 = ExtResource( 18 )
-shader_param/wave2 = ExtResource( 19 )
-shader_param/noise = ExtResource( 16 )
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 25.0
@@ -58,8 +46,7 @@ points = PoolVector2Array( 40, 40, 8, 40, 8, 8, 40, 8 )
 script = ExtResource( 7 )
 
 [node name="Water" type="ColorRect" parent="."]
-modulate = Color( 0.458824, 0.458824, 0.54902, 1 )
-material = SubResource( 6 )
+modulate = Color( 0.160784, 0.152941, 0.133333, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -500.0

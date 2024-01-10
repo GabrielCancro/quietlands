@@ -6,7 +6,7 @@
 [ext_resource path="res://OLD_prefabs/Light2D.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 16.0
+radius = 12.0416
 
 [node name="Castle" type="StaticBody2D"]
 script = ExtResource( 2 )

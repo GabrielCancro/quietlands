@@ -20,4 +20,4 @@ func set_enabled(val):
 	isEnabled = val
 	if val: 
 		GC.EFFECTOR.shine(global_position)
-		GC.clear_fog_range(position/32,5)
+		GC.clear_fog_range(position/32,3)

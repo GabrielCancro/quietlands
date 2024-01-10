@@ -6,7 +6,7 @@
 [ext_resource path="res://attacks/healthComponent.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 16.0
+radius = 12.1655
 
 [node name="Zigurat" type="StaticBody2D"]
 script = ExtResource( 1 )

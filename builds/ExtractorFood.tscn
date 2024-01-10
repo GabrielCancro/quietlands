@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/Elements/obj_bush.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 11.0
+radius = 9.0
 
 [node name="ExtractorFood" type="StaticBody2D"]
 script = ExtResource( 1 )

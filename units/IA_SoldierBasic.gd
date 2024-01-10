@@ -23,14 +23,15 @@ func _process(delta):
 		target = GC.PLAYER
 		get_node("../AnimatedSprite").play("idle")
 		return
-	if global_position.distance_to(GC.PLAYER.position)>max_distance: target = GC.PLAYER
-	if target == GC.PLAYER && global_position.distance_to(target.position)<35: spd_modif = -1
-	elif target == GC.PLAYER && global_position.distance_to(target.position)>60: spd_modif = global_position.distance_to(target.position)/30
-	else: spd_modif = 1
-	
-	dir = global_position.direction_to(target.position)
-	distance = position.distance_to(target.position)
-	if distance>10:
+	distance = global_position.distance_to(GC.PLAYER.global_position)
+	if target && distance<20: spd_modif = -1
+	elif target && distance<35: spd_modif = 0
+	elif target && distance<50: spd_modif = 1
+	elif target && distance<100: spd_modif = distance/20
+	if target && distance>=100: get_parent().global_position = target.global_position
+
+	dir = global_position.direction_to(target.global_position)
+	if spd_modif!=0:
 		get_node("../AnimatedSprite").flip_h = (dir.x<0)
 		get_parent().move_and_slide(dir*speed*spd_modif)
 		get_node("../AnimatedSprite").play("walk")

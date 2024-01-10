@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/Elements/bld_extractor.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 11.0
+radius = 9.05539
 
 [node name="ExtractorStone" type="StaticBody2D"]
 script = ExtResource( 1 )
