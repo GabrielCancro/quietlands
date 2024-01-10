@@ -4,6 +4,7 @@
 [ext_resource path="res://OLD_prefabs/Light2D.gd" type="Script" id=2]
 
 [node name="Light2D" type="Light2D"]
+enabled = false
 texture = ExtResource( 1 )
 mode = 2
 script = ExtResource( 2 )

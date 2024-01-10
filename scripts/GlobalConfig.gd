@@ -171,10 +171,20 @@ func destroy_structure(structure):
 	structure.queue_free()
 	EFFECTOR.shine(structure.global_position)
 
-func clear_fog_range(pos,ran):
+func clear_fog_range(pos,ran,enableBuilds = true):
 	var fogMap = (GAME.get_node("World/FogTileMap") as TileMap)
 	fogMap.set_cell(pos.x,pos.y,-1)
 	for _x in range(-ran,ran+1):
 		for _y in range(-ran,ran+1):
 			if Vector2(_x,_y).distance_to(Vector2.ZERO)>ran: continue
 			fogMap.set_cell(pos.x+_x,pos.y+_y,-1)
+	#ACTIVE BUILDS
+	if enableBuilds:
+		for b in RESOURCE_NODES:
+			if !is_instance_valid(b):
+				RESOURCE_NODES.erase(b)
+				continue
+			print("DISTANCE ",b.name,"  ",b.global_position.distance_to(pos))
+			if(b.global_position.distance_to(pos*32)<(ran*32)+1):
+				if !b.isEnabled: b.set_enabled(true)
+

@@ -7,10 +7,13 @@ func _ready():
 	GC.PLAYER_BUILDER = self
 	connect("body_entered",self,"check_places")
 	connect("body_exited",self,"check_places")
-	$Label.visible = false
 
 func _process(delta):
 	position = GC.PLAYER.position
+	$Sprite.visible = is_instance_valid(current_place)
+	if($Sprite.visible):
+		$Sprite.global_position = current_place.global_position
+		$Sprite.z_index = current_place.z_index-10
 
 func check_places(body):
 	current_place = null
@@ -20,11 +23,6 @@ func check_places(body):
 				#if "isBuilded" in place && place.isBuilded: continue
 				current_place = place
 				break
-#	if(current_place):
-#		$Label.text = current_place.name
-#		$Label.visible = true
-#	else:
-#		$Label.visible = false
 	if current_place: print("check_places!!! ",current_place.name)
 	emit_signal("on_change_current_place",current_place)
 	#GC.RES_POPUP.set_popup(current_place)

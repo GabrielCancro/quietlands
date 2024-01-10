@@ -17,5 +17,5 @@ func load_level(id):
 	GC.PLAYER.position = LEVEL.get_node("StartPosition").position
 	LEVEL.get_node("StartPosition").queue_free()
 	GC.WORLD.add_child(GC.TILEMAP)
-	GC.active_near_builds(GC.PLAYER)
+	#GC.active_near_builds(GC.PLAYER)
 	GC.clear_fog_range(GC.PLAYER.position/32,4)

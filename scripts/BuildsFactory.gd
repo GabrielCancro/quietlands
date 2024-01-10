@@ -4,13 +4,14 @@ var BuildNodes = {
 	"WOOD": preload("res://builds/Wood.tscn"),
 	"FOOD": preload("res://builds/Food.tscn"),
 	"STONE": preload("res://builds/Stone.tscn"),
+	"DEBRIS": preload("res://builds/Debris.tscn"),
 	"RUINS": preload("res://builds/Ruins.tscn"),
 	
 	"HOUSE": preload("res://builds/House.tscn"),
 	"BARRACK": preload("res://builds/Barrack.tscn"),
 	"EXT_FOOD": preload("res://builds/ExtractorFood.tscn"),
 	"EXT_WOOD": preload("res://builds/ExtractorWood.tscn"),
-	"EXT_SOOD": preload("res://builds/ExtractorStone.tscn"),
+	"EXT_STONE": preload("res://builds/ExtractorStone.tscn"),
 	"CASTLE": preload("res://builds/Castle.tscn"),
 }
 
@@ -27,6 +28,7 @@ var BuildInPlace = {
 	"FOOD": ["EXT_FOOD"],
 	"WOOD": ["EXT_WOOD"],
 	"STONE": ["EXT_STONE"],
+	"DEBRIS": ["HOUSE"],
 	"RUINS": ["CASTLE", "HOUSE","BARRACK"],
 	"BARRACK": ["MILICIAN"],
 	"CASTLE": [],
@@ -41,7 +43,7 @@ var BUILDINGS = []
 func _ready():
 	pass # Replace with function body.
 
-func Build(buildType,pos):
+func Build(buildType,pos,isEnabled=true):
 	if !buildType in BuildNodes: 
 		print("UNEXISTENT BUILD TYPE TO CONSTRUCT")
 		return
@@ -49,6 +51,7 @@ func Build(buildType,pos):
 	NODE.position = pos
 	GC.GAME.get_node("World").add_child(NODE)
 	BUILDINGS.append(NODE)
+	NODE.set_enabled(isEnabled)
 	var hc = NODE.get_node_or_null("healthComponent")
 	if hc && NODE.has_method("on_dead"): 
 		hc.connect("dead",NODE,"on_dead")
@@ -59,7 +62,8 @@ func Build_in_current_place(buildType):
 	var Place = GC.PLAYER_BUILDER.current_place
 	var pos = Place.position
 	var Build = Build(buildType,pos)
-	if Build.team == 1: GC.active_near_builds(Build)
+	#if Build.team == 1: GC.active_near_builds(Build)
+	if Build.team == 1: GC.clear_fog_range(Build.global_position/32,3)
 	Place.queue_free()
 #	Build.inPlace = Place
 #	if buildType == "EXTRACTOR": 

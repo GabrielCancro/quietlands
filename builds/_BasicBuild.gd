@@ -11,7 +11,7 @@ func _ready():
 	GC.set_z_index_to(self)
 	yield(get_tree().create_timer(.1),"timeout")
 	#(GC.TILEMAP as TileMap).set_cell( floor(position.x/GC.TILEMAP.cell_size.x), floor(position.y/GC.TILEMAP.cell_size.y), 0)
-	
+
 
 func init():
 	pass
@@ -20,4 +20,4 @@ func set_enabled(val):
 	isEnabled = val
 	if val: 
 		GC.EFFECTOR.shine(global_position)
-		GC.clear_fog_range(position/32,3)
+		GC.clear_fog_range(global_position/32,1,false)

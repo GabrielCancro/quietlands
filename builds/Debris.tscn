@@ -4,14 +4,13 @@
 [ext_resource path="res://builds/Debris.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 8.24621
+radius = 1.0
 
 [node name="Debris" type="StaticBody2D"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 1 )

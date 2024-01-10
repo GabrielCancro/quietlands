@@ -6,6 +6,7 @@ var _remain_time = 0
 var isNight = true
 onready var CanvasModulate = get_node("/root/Game/CanvasModulate")
 onready var DarknessNode = get_node("/root/Game/Darkness")
+onready var FogTileMap = get_node("/root/Game/World/FogTileMap")
 
 signal change_time(day,isNight)
 
@@ -30,8 +31,9 @@ func start_day():
 	isNight = false
 	_remain_time = time
 	$Day/Label.text = "DIA "+str(day)
-	$Tween.interpolate_property(CanvasModulate,"color",CanvasModulate.color,Color(.1,.1,.1,1),1.0)
+#	$Tween.interpolate_property(CanvasModulate,"color",CanvasModulate.color,Color(.1,.1,.1,1),1.0)
 	$Tween.interpolate_property(DarknessNode,"color",DarknessNode.color,Color(0,0,0,0),1.0)
+	$Tween.interpolate_property(FogTileMap,"modulate",FogTileMap.modulate,Color(.8,.8,.8,1),1.0)
 	DarknessNode
 	$Tween.start()
 	emit_signal("change_time",day,isNight)
@@ -43,8 +45,9 @@ func start_night():
 	_remain_time = 0
 	isNight = true
 	$Day/Label.text = "NOCHE "+str(day)
-	$Tween.interpolate_property(CanvasModulate,"color",CanvasModulate.color,Color(0,0,0,1),1.0)
-	$Tween.interpolate_property(DarknessNode,"color",DarknessNode.color,Color(0,0,0,.2),1.0)
+#	$Tween.interpolate_property(CanvasModulate,"color",CanvasModulate.color,Color(0,0,0,1),1.0)
+	$Tween.interpolate_property(DarknessNode,"color",DarknessNode.color,Color(0,0,.8,.2),1.0)
+	$Tween.interpolate_property(FogTileMap,"modulate",FogTileMap.modulate,Color(.3,.3,.3,1),1.0)
 	$Tween.start()
 	emit_signal("change_time",day,isNight)
 
