@@ -6,9 +6,4 @@ func _ready():
 		{"day":2, "type":"I", "step":3, "enemy":"GHOST"},
 		{"day":3, "type":"I", "step":4, "enemy":"GHOST"},
 	]
-	
-	pass
-#	for t in $Deco.get_children():
-#		GC.set_z_index_to(t)
-#	for s in $Structures.get_children():
-#		GC.set_z_index_to(s)
+

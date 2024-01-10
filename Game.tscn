@@ -74,7 +74,7 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="World/Builder"]
 modulate = Color( 1, 1, 1, 0.27451 )
-scale = Vector2( 0.2, 0.15 )
+scale = Vector2( 0.3, 0.2 )
 texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Builder"]

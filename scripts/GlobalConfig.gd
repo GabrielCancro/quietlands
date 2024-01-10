@@ -183,7 +183,6 @@ func clear_fog_range(pos,ran,enableBuilds = true):
 			if !is_instance_valid(b):
 				RESOURCE_NODES.erase(b)
 				continue
-			print("DISTANCE ",b.name,"  ",b.global_position.distance_to(pos))
 			if(b.global_position.distance_to(pos*32)<(ran*32)+1):
 				if !b.isEnabled: b.set_enabled(true)
 
