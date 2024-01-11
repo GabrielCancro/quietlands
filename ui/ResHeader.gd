@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
 	BuildsFactory.connect("build_one",self,"on_build")
+	UnitsFactory.connect("train_one",self,"on_train")
 
 func update_ui():
 	$HBox/Res1/Label.text = str(GC.RES["f"])
@@ -24,6 +25,9 @@ func calculate_extras():
 			food += 1
 			wood += 1
 			stone += 1
+	for un in UnitsFactory.UNITS:
+		if !is_instance_valid(un): continue
+		if un.team==1: food -= 1
 	if food>=0: $HBox/Res1/Label2.text = "+"+str(food)
 	else: $HBox/Res1/Label2.text = str(food)
 	if wood>=0: $HBox/Res2/Label2.text = "+"+str(wood)
@@ -32,4 +36,7 @@ func calculate_extras():
 	else: $HBox/Res3/Label2.text = str(stone)
 
 func on_build(buildNode):
+	calculate_extras()
+
+func on_train(unitNode):
 	calculate_extras()

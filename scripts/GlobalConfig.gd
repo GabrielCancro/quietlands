@@ -17,7 +17,7 @@ var ENEMIES_FROM_PORTAL = 0
 var TOTAL_SOLDIERS = 0
 var DARK_CRISTAL_COUNTER = 0
 var object_selected = null
-var RES = {"f":5, "w":5, "s":5, "p":0}
+var RES = {"f":5, "w":5, "s":5, "p":0, "xf":0, "xw":0, "xs":0}
 
 signal new_build_created()
 signal on_select_object(object)
@@ -106,10 +106,19 @@ func get_most_close_health(my,distance=99999):
 	return candidate
 
 func collect_resources():
-	for bld in GC.HEALTHS:
+	for bld in BuildsFactory.BUILDINGS:
 		if !is_instance_valid(bld): continue
-		if !bld.get("buildType"): continue
 		if bld.has_method("on_collect_phase"): bld.on_collect_phase()
+	
+	yield(get_tree().create_timer(2),"timeout")
+	var dl = 0
+	for un in UnitsFactory.UNITS:
+		if RES["f"]<=-5: break
+		if !is_instance_valid(un): continue
+		if un.team==1: 
+			consume_one_resource("f",dl)
+			dl += .2
+		
 #		if bld.buildType == "EXTRACTOR":
 #			change_camera_follow(bld)
 #			yield(get_tree().create_timer(.5),"timeout")
@@ -159,6 +168,15 @@ func collect_one_resource(type,pos,delay=0):
 	var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
 	Node.rect_global_position = pos
 	Node.set_resource( type )
+	GAME.add_child(Node)
+
+func consume_one_resource(type,delay=0):
+	yield(get_tree().create_timer(delay),"timeout")
+	var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
+	Node.rect_global_position = get_viewport().size * Vector2(.8,.3)
+	Node.set_resource( type )
+	Node.val = -1
+	Node.time = .7
 	GAME.add_child(Node)
 
 func destroy_structure(structure):

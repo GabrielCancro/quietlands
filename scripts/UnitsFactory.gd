@@ -1,5 +1,7 @@
 extends Node
 
+signal train_one(unitNode)
+
 var UnitNodes = {
 	"MILICIAN": preload("res://units/Soldier.tscn"),
 	"ENEMY": preload("res://units/Enemy.tscn"),
@@ -20,6 +22,7 @@ func spawn_unit(unitType,pos):
 	NODE.position = pos
 	GC.GAME.get_node("World").add_child(NODE)
 	UNITS.append(NODE)
+	emit_signal("train_one",NODE)
 	return NODE
 
 func spawn_bullet(pos,target):
