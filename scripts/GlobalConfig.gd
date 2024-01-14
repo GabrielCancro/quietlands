@@ -106,18 +106,28 @@ func get_most_close_health(my,distance=99999):
 	return candidate
 
 func collect_resources():
-	for bld in BuildsFactory.BUILDINGS:
-		if !is_instance_valid(bld): continue
-		if bld.has_method("on_collect_phase"): bld.on_collect_phase()
+	for r in range(RES["xf"]): 
+		collect_one_resource("f")
+		yield(get_tree().create_timer(.2),"timeout")
+	for r in range(RES["xw"]): 
+		collect_one_resource("w")
+		yield(get_tree().create_timer(.2),"timeout")
+	for r in range(RES["xs"]): 
+		collect_one_resource("s")
+		yield(get_tree().create_timer(.2),"timeout")
 	
-	yield(get_tree().create_timer(2),"timeout")
-	var dl = 0
-	for un in UnitsFactory.UNITS:
-		if RES["f"]<=-5: break
-		if !is_instance_valid(un): continue
-		if un.team==1: 
-			consume_one_resource("f",dl)
-			dl += .2
+#	for bld in BuildsFactory.BUILDINGS:
+#		if !is_instance_valid(bld): continue
+#		if bld.has_method("on_collect_phase"): bld.on_collect_phase()
+#
+#	yield(get_tree().create_timer(2),"timeout")
+#	var dl = 0
+#	for un in UnitsFactory.UNITS:
+#		if RES["f"]<=-5: break
+#		if !is_instance_valid(un): continue
+#		if un.team==1: 
+#			consume_one_resource("f",dl)
+#			dl += .2
 		
 #		if bld.buildType == "EXTRACTOR":
 #			change_camera_follow(bld)
@@ -163,21 +173,10 @@ func change_camera_follow(node):
 #	Node.set_resource( type )
 #	UI.add_child(Node)
 
-func collect_one_resource(type,pos,delay=0):
-	yield(get_tree().create_timer(delay),"timeout")
+func collect_one_resource(type):
 	var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
-	Node.rect_global_position = pos
 	Node.set_resource( type )
-	GAME.add_child(Node)
-
-func consume_one_resource(type,delay=0):
-	yield(get_tree().create_timer(delay),"timeout")
-	var Node = preload("res://ui/ResourceCollectedEffect.tscn").instance()
-	Node.rect_global_position = get_viewport().size * Vector2(.8,.3)
-	Node.set_resource( type )
-	Node.val = -1
-	Node.time = .7
-	GAME.add_child(Node)
+	UI.add_child(Node)
 
 func destroy_structure(structure):
 	if "inPlace" in structure && structure.inPlace:

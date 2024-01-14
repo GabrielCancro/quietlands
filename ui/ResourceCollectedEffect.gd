@@ -5,6 +5,7 @@ var val = 1
 var time = 1.5
 
 func _ready():
+	rect_position = get_viewport().size/2
 	var toPos = get_viewport().size * Vector2(.8,.2)
 	if val<0: toPos = get_viewport().size * Vector2(.8,.5)
 	$Tween.interpolate_property(self,"rect_scale",Vector2(1,1),Vector2(2,2),time*.3,Tween.TRANS_QUINT,Tween.EASE_OUT)

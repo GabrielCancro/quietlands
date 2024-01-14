@@ -8,6 +8,7 @@ func _ready():
 	if team==1: 
 		GC.TOTAL_SOLDIERS += 1
 		GC.add_one_resource("p",0)
+		GC.add_one_resource("xf",-1)
 		$healthComponent.connect("dead",self,"on_dead")
 
 func _process(delta):
@@ -19,3 +20,4 @@ func on_attack(target):
 func on_dead(hc):
 	GC.TOTAL_SOLDIERS -= 1
 	GC.add_one_resource("p",0)
+	GC.add_one_resource("xf",+1)

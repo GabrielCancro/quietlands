@@ -3,7 +3,7 @@ extends "res://builds/_BasicBuild.gd"
 func init():
 	buildType = "EXT_FOOD"
 	team = 1
+	GC.add_one_resource("xf",2)
 
-func on_collect_phase():
-	GC.collect_one_resource("f",global_position)
-	GC.collect_one_resource("f",global_position,.2)
+func on_dead():
+	GC.add_one_resource("xf",-2)
