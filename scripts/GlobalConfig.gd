@@ -68,7 +68,7 @@ func get_current_build_type():
 	return b.buildType
 	
 func set_z_index_to(obj,offset=0):
-	obj.z_index = 100+floor(obj.position.y/10)+offset
+	obj.z_index = 100+floor(obj.position.y/5)+offset
 
 func clear_fog(pos,rad):
 	pass

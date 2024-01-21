@@ -7,16 +7,16 @@
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -11.0
+margin_left = -12.0
 margin_top = -23.0
-margin_right = 13.0
+margin_right = 12.0
 margin_bottom = -17.0
 color = Color( 0.137255, 0.137255, 0.137255, 1 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
-margin_left = -10.0
+margin_left = -11.0
 margin_top = -22.0
-margin_right = 12.0
+margin_right = 11.0
 margin_bottom = -18.0
 value = 25.0
 texture_under = ExtResource( 2 )
