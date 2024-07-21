@@ -11,6 +11,7 @@ var WORLD
 var TILEMAP
 var RES_POPUP
 var EFFECTOR
+var HELPTEXT
 var HEALTHS = []
 var RESOURCE_NODES = [] # resources and ruins nodes of map
 var ENEMIES_FROM_PORTAL = 0

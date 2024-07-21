@@ -67,6 +67,7 @@ func set_button_data(btn,_index):
 	else:
 		btn.visible = true
 		btn.get_node("Name").text = array_actions[_index]
+		GC.HELPTEXT.set_text("desc_build_"+array_actions[_index])
 		btn.get_node("ResCost").set_cost(get_cost(array_actions[_index]))
 	$HBox.visible = btn.visible
 

@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 GC="*res://scripts/GlobalConfig.gd"
 BuildsFactory="*res://scripts/BuildsFactory.gd"
 UnitsFactory="*res://scripts/UnitsFactory.gd"
+Lang="*res://scripts/Lang.gd"
 
 [display]
 

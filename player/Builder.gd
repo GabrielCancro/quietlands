@@ -27,6 +27,7 @@ func check_places(body):
 				break
 #	if current_place: print("check_places!!! ",current_place.name)
 	emit_signal("on_change_current_place",current_place)
+	if !current_place: GC.HELPTEXT.unset_text()
 	#GC.RES_POPUP.set_popup(current_place)
 
 func _input(event):
