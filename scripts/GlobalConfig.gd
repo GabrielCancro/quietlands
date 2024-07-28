@@ -107,6 +107,15 @@ func get_most_close_health(my,distance=99999):
 	return candidate
 
 func collect_resources():
+	for Build in BuildsFactory.BUILDINGS:
+		if !is_instance_valid(Build): continue
+		if "amount" in Build && Build.team>0: 
+			Build.amount -= 1
+			if Build.amount<=0: 
+				HEALTHS.erase(Build)
+				BuildsFactory.BUILDINGS.erase(Build)
+				Build.queue_free()
+				EFFECTOR.shine(Build.global_position)
 	for r in range(RES["xf"]): 
 		collect_one_resource("f")
 		yield(get_tree().create_timer(.2),"timeout")
@@ -181,7 +190,8 @@ func collect_one_resource(type):
 
 func destroy_structure(structure):
 	if "inPlace" in structure && structure.inPlace:
-		BuildsFactory.Build(structure.inPlace,structure.position)
+		var Place = BuildsFactory.Build(structure.inPlace,structure.position)
+		if "amount" in Place && "amount" in structure: Place.amount = structure.amount
 	HEALTHS.erase(structure)
 	BuildsFactory.BUILDINGS.erase(structure)
 	#(TILEMAP as TileMap).set_cell( floor(structure.position.x/TILEMAP.cell_size.x), floor(structure.position.y/TILEMAP.cell_size.y), 0)

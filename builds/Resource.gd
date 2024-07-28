@@ -1,7 +1,7 @@
 extends "res://builds/_BasicBuild.gd"
 
 export(String, "FOOD", "WOOD", "STONE") var RESOURCE_TYPE
-export var amount = 8
+export var amount = 5
 
 func init():
 	buildType = RESOURCE_TYPE

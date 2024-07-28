@@ -5,7 +5,8 @@ func _ready():
 
 func on_change_current_place(node):
 	if node && node.buildType: 
-		$Label.text = node.buildType
+		$Label.text = Lang.get_localization("bld_name_"+node.buildType)
+		if "amount" in node: $Label.text += " ("+str(node.amount)+")"
 		visible = true
 	else:
 		visible = false

@@ -70,6 +70,7 @@ func Build_in_current_place(buildType):
 	var Place = GC.PLAYER_BUILDER.current_place
 	var pos = Place.position
 	var Build = Build(buildType,pos)
+	if "amount" in Place && "amount" in Build: Build.amount = Place.amount
 	#if Build.team == 1: GC.active_near_builds(Build)
 	if Build.team == 1: GC.clear_fog_range(Build.global_position/32,3)
 	Place.queue_free()
