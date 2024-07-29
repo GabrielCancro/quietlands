@@ -4,23 +4,23 @@
 [ext_resource path="res://OLD_prefabs/Light2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://builds/Settlement.gd" type="Script" id=3]
 [ext_resource path="res://assets/Elements/bld_house_2.png" type="Texture" id=4]
-[ext_resource path="res://assets/Elements/flag.png" type="Texture" id=5]
+[ext_resource path="res://assets/Elements/flag2.png" type="Texture" id=5]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 22, 46 )
+region = Rect2( 0, 0, 22, 20 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 5 )
-region = Rect2( 22, 0, 22, 46 )
+region = Rect2( 22, 0, 22, 20 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 5 )
-region = Rect2( 44, 0, 22, 46 )
+region = Rect2( 44, 0, 22, 20 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 5 )
-region = Rect2( 66, 0, 22, 46 )
+region = Rect2( 66, 0, 22, 20 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -40,16 +40,18 @@ script = ExtResource( 3 )
 position = Vector2( 11, -6 )
 texture = ExtResource( 4 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -8, -11 )
-frames = SubResource( 6 )
-frame = 1
-playing = true
-flip_h = true
-
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( -9, 1 )
 texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.843137, 0.87451, 1, 1 )
+position = Vector2( -16, -6 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 6 )
+frame = 2
+playing = true
+flip_h = true
 
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 5, 5 )
