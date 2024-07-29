@@ -13,3 +13,19 @@ IDEAS
 - mejorar la IA de los soldados, corren raro
 - pasar de nivel el castillo, o desbloquear tecnologias para mejorar las cosas
 - que el heroe se cure con algun upgrade o edificio al empezar el dia
+
+
+QuietLands - v006 
+-Se comenzo con la localizacion para eng/esp
+-Se mejoraron algunos assets
+-Ahora los recursos se agotan
+
+Para la v007 espero:
+-Crear el nivel de tutorial
+-Agregar un placeholder de la introducción
+-Agregar menu principal con seleccion de nivel
+
+Para mas adelante:
+-Agregar mas enemigos
+-Agregar algunos edificios extras
+-Agregar algunos sfx y gfx
