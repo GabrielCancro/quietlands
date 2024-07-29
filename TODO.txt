@@ -1,5 +1,15 @@
+INTRO
+
+MENU
+
+TUTORIAL (EDIF ASENTAMIENTO, CUARTEL, CASA, 4 SOLDADOS, JUNTAR PIEDRA)
+PARTIDA 1 (EXPLICAR EN LOS RUINAS MENORES SE PUEDEN CONSTRUIR CASAS O PUESTOS DE EXPLORACION QUE SE MEJORAN A TORRES)
+
+- VER COMO BLOQUEAR O DESBLOQUEAR EDIFICIOS
+
+
+IDEAS
 - modo AGRESIVO o TACTICO para que las unidades ataquen o te persigan
 - mejorar la IA de los soldados, corren raro
 - pasar de nivel el castillo, o desbloquear tecnologias para mejorar las cosas
-
 - que el heroe se cure con algun upgrade o edificio al empezar el dia

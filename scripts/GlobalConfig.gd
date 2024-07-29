@@ -150,7 +150,7 @@ func collect_resources():
 #			if(bld.inPlace.amount<=0):
 #				destroy_structure(bld)
 #				yield(get_tree().create_timer(1),"timeout")
-#		elif bld.buildType == "CASTLE":
+#		elif bld.buildType == "SETTLEMENT":
 #				change_camera_follow(bld)
 #				yield(get_tree().create_timer(.5),"timeout")
 #				recollect_one_resource_ui( "f" )

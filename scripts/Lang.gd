@@ -2,7 +2,20 @@ extends Node
 
 var lng = "es"
 var TEXTS = {
-	"desc_build_CASTLE_es": "Castillo, genera un recurso de comida y uno de madera por turno, es resistente y tiene buen rango de exploración.",
+	"bld_name_RUINS_es": "RUINAS",
+	"bld_name_DEBRIS_es": "ESCOMBROS",
+	"bld_name_SETTLEMENT_es": "ASENTAMIENTO",
+	"bld_name_HOUSE_es": "CASA",
+	"bld_name_OUTPOST_es": "AVANZADA",
+	"bld_name_BARRACK_es": "CUARTEL",
+	"bld_name_MILICIAN_es": "MILICIA",
+	"bld_name_TOWER_es": "TORRE",
+	"bld_name_EXT_FOOD_es": "RECOLECTOR",
+	"bld_name_EXT_WOOD_es": "RECOLECTOR",
+	"bld_name_EXT_STONE_es": "RECOLECTOR",
+	
+	"desc_build_RUINS_es": "Ruinas, estos restos y cimientos pueden utilizarce para edificar nuevas estructuras robustas.",
+	"desc_build_SETTLEMENT_es": "Asentamiento, genera un recurso de comida y madera por turno, es resistente y tiene buen rango de exploración.",
 	"desc_build_HOUSE_es": "Casa, aumenta el limite de guerreros que puedes entrenar.",
 	"desc_build_OUTPOST_es": "Avanzada, una torre precaria que permite explorar un amplio rango. Puedes mejorarla a torre defensiva.",
 	"desc_build_BARRACK_es": "Cuartel, permite entrenar guerreros que te acompañan.",
