@@ -13,6 +13,9 @@ var TEXTS = {
 	"bld_name_EXT_FOOD_es": "RECOLECTOR",
 	"bld_name_EXT_WOOD_es": "RECOLECTOR",
 	"bld_name_EXT_STONE_es": "RECOLECTOR",
+	"bld_name_FOOD_es": "COMIDA",
+	"bld_name_WOOD_es": "MADERA",
+	"bld_name_STONE_es": "PIEDRA",
 	
 	"desc_build_RUINS_es": "Ruinas, estos restos y cimientos pueden utilizarce para edificar nuevas estructuras robustas.",
 	"desc_build_SETTLEMENT_es": "Asentamiento, genera un recurso de comida y madera por turno, es resistente y tiene buen rango de exploración.",
@@ -27,7 +30,10 @@ var TEXTS = {
 	
 	"tuto_01_es":"Bienvenido a Quiet Lands! \nNecesitamos lo mejor de ti para resolver esta complicada situación. Lo primero será crear un campamento defensivo.",
 	"tuto_02_es":"Acercate a una RUINA, allí podrás utilizar los restos para edificar estructuras robustas. \n-Construye un ASENTAMIENTO.",
-	"tuto_03_es":"Perfecto! En los escombros mas pequeños podrás construir edificios mas ligeros como avanzadas o pequeñas casas. Ahora debes construir RECOLECTORES para obtener recursos.",
+	"tuto_03_es":"Perfecto! En los escombros mas pequeños podrás construir edificios mas ligeros como avanzadas o pequeñas casas.",
+	"tuto_04_es":"Ahora debes construir RECOLECTORES, para obtener recursos, al comenzar un nuevo día obtendrás los recursos de los recolectores. \n-Construye un RECOLECTOR de MADERA.",
+	"tuto_05_es":"Ya casi estamos listos, vas a necesitar algunos soldados para tu campaña. Para reclutar soldados necesitas un CUARTEL, además tienes que tener suficientes casas.",
+	"tuto_06_es":"Es importante que sepas que los soldados debes alimentarlos, cada soldado gastará (1) de COMIDA cada día. \n-RECLUTA 2 MILICIAS.",
 }
 # Called when the node enters the scene tree for the first time.
 func get_localization(code):

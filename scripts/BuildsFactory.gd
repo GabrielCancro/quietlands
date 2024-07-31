@@ -45,6 +45,8 @@ var BuildInPlace = {
 	"OUTPOST": ["TOWER"],
 }
 
+var ExludesBuilds = []
+
 var BUILDINGS = []
 
 func _ready():

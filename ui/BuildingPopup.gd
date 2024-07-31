@@ -29,9 +29,12 @@ func on_change_current_place(node):
 		return
 	if node && node.buildType in BuildsFactory.BuildInPlace: 
 		array_actions = BuildsFactory.BuildInPlace[node.buildType]
+		var aux_actions = array_actions.duplicate()
+		for ac in aux_actions: if ac in BuildsFactory.ExludesBuilds: array_actions.erase(ac)
 		if index>=array_actions.size(): index = 0
 	else: 
 		array_actions = []
+	print(array_actions, "  EX",BuildsFactory.ExludesBuilds)
 	set_data()
 
 func _process(delta):
