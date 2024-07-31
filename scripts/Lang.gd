@@ -24,6 +24,10 @@ var TEXTS = {
 	"desc_build_EXT_FOOD_es": "Extractor, obtiene 2 de comida por turno.",
 	"desc_build_EXT_WOOD_es": "Extractor, obtiene 2 de madera por turno.",
 	"desc_build_EXT_STONE_es": "Extractor, obtiene 2 de piedra por turno.",
+	
+	"tuto_01_es":"Bienvenido a Quiet Lands! \nNecesitamos lo mejor de ti para resolver esta complicada situación. Lo primero será crear un campamento defensivo.",
+	"tuto_02_es":"Acercate a una RUINA, allí podrás utilizar los restos para edificar estructuras robustas. \n-Construye un ASENTAMIENTO.",
+	"tuto_03_es":"Perfecto! En los escombros mas pequeños podrás construir edificios mas ligeros como avanzadas o pequeñas casas. Ahora debes construir RECOLECTORES para obtener recursos.",
 }
 # Called when the node enters the scene tree for the first time.
 func get_localization(code):

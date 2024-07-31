@@ -12,6 +12,7 @@ var TILEMAP
 var RES_POPUP
 var EFFECTOR
 var HELPTEXT
+var POPUP
 var HEALTHS = []
 var RESOURCE_NODES = [] # resources and ruins nodes of map
 var ENEMIES_FROM_PORTAL = 0
@@ -214,3 +215,5 @@ func clear_fog_range(pos,ran,enableBuilds = true):
 			if(b.global_position.distance_to(pos*32)<(ran*32)+1):
 				if !b.isEnabled: b.set_enabled(true)
 
+func show_popup(code):
+	GAME.get_node("UI/Popup").show_popup(code)

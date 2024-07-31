@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/Builder.gd" type="Script" id=1]
 [ext_resource path="res://ui/HelpText.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Game.gd" type="Script" id=7]
 [ext_resource path="res://effects/Effector.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/circle_white.png" type="Texture" id=9]
+[ext_resource path="res://ui/Popup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://ui/BuildingPopup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/DaynightCicle.tscn" type="PackedScene" id=14]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=21]
@@ -137,5 +138,8 @@ margin_left = -186.0
 margin_top = -52.0
 margin_right = 186.0
 margin_bottom = -12.0
+
+[node name="Popup" parent="UI" instance=ExtResource( 10 )]
+visible = false
 
 [node name="Effector" parent="." instance=ExtResource( 8 )]
