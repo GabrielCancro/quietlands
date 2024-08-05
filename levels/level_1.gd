@@ -13,7 +13,7 @@ func _ready():
 	UnitsFactory.connect("train_one",self,"on_train")
 	BuildsFactory.ExludesBuilds = BuildsFactory.BuildCosts.keys()
 	BuildsFactory.ExludesBuilds.erase("SETTLEMENT")
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(3),"timeout")
 	GC.show_popup("tuto_01")
 	yield(GC.POPUP,"close_popup")
 	GC.show_popup("tuto_02")

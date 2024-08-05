@@ -58,7 +58,7 @@ func check_resorces_amount(cost={}):
 	return true
 
 func add_float_text(tx,pos):
-	var FX = preload("res://fx/FloatText.tscn").instance()
+	var FX = preload("res://effects/FloatText.tscn").instance()
 	FX.position = pos
 	FX.setText(tx)
 	GAME.add_child(FX)
