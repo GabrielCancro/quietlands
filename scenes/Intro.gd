@@ -4,7 +4,7 @@ var i_diapo = 0
 var t = 0
 
 func _ready():
-	for i in range(5): add_diapo_fx( "D"+str(i+1), 2+i*13 )
+	for i in range(5): add_diapo_fx( "D"+str(i+1), 4+i*13 )
 	$btn_skip.connect("button_down",self,"skip")
 
 func add_diapo_fx(DN,time):
@@ -14,7 +14,7 @@ func add_diapo_fx(DN,time):
 	appear(DN+"/IMG1"  ,t+2.5,  5 )
 	appear(DN+"/L2"    ,t+4 )
 	disappear(DN       ,t+10   )
-	yield(get_tree().create_timer(68),"timeout")
+	yield(get_tree().create_timer(70),"timeout")
 	skip()
 
 func appear(path, delay, duration = 1):
