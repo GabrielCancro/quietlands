@@ -1,0 +1,222 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://media/map.jpeg" type="Texture" id=1]
+[ext_resource path="res://media/ParpadingLight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Map.gd" type="Script" id=3]
+[ext_resource path="res://assets/Elements/obj_dark_cristal_small.png" type="Texture" id=4]
+
+[node name="Map" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+light_mask = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -401.0
+margin_top = -205.5
+margin_right = 401.0
+margin_bottom = 205.5
+texture = ExtResource( 1 )
+expand = true
+
+[node name="LIGHT" parent="." instance=ExtResource( 2 )]
+position = Vector2( 364, 186 )
+scale = Vector2( 11.6772, 6.17957 )
+energy = 0.5
+amplitude = 0.01
+
+[node name="Levels" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="L1" type="Button" parent="Levels"]
+margin_left = 608.0
+margin_top = 279.0
+margin_right = 649.0
+margin_bottom = 319.0
+focus_mode = 0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L1" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L1"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
+
+[node name="L2" type="Button" parent="Levels"]
+margin_left = 552.0
+margin_top = 223.0
+margin_right = 593.0
+margin_bottom = 263.0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L2" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 1, 0, 0, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L2"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
+
+[node name="L3" type="Button" parent="Levels"]
+margin_left = 474.0
+margin_top = 301.0
+margin_right = 515.0
+margin_bottom = 341.0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L3" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L3"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
+
+[node name="L4" type="Button" parent="Levels"]
+margin_left = 461.0
+margin_top = 198.0
+margin_right = 502.0
+margin_bottom = 238.0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L4" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L4"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
+
+[node name="L5" type="Button" parent="Levels"]
+margin_left = 359.0
+margin_top = 234.0
+margin_right = 400.0
+margin_bottom = 274.0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L5" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L5"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
+
+[node name="L6" type="Button" parent="Levels"]
+margin_left = 253.0
+margin_top = 247.0
+margin_right = 294.0
+margin_bottom = 287.0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L6" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L6"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
+
+[node name="L7" type="Button" parent="Levels"]
+margin_left = 157.0
+margin_top = 274.0
+margin_right = 198.0
+margin_bottom = 314.0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L7" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L7"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
+
+[node name="L8" type="Button" parent="Levels"]
+margin_left = 340.0
+margin_top = 171.0
+margin_right = 381.0
+margin_bottom = 211.0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L8" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L8"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
+
+[node name="L9" type="Button" parent="Levels"]
+margin_left = 233.0
+margin_top = 116.0
+margin_right = 274.0
+margin_bottom = 156.0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L9" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L9"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
+
+[node name="L10" type="Button" parent="Levels"]
+margin_left = 421.0
+margin_top = 61.0
+margin_right = 462.0
+margin_bottom = 101.0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L10" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L10"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
+
+[node name="L11" type="Button" parent="Levels"]
+margin_left = 98.0
+margin_top = 174.0
+margin_right = 139.0
+margin_bottom = 214.0
+flat = true
+
+[node name="LIGHT1" parent="Levels/L11" instance=ExtResource( 2 )]
+position = Vector2( 20.4911, 19.2305 )
+scale = Vector2( 3.82491, 3.17788 )
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+mode = 0
+
+[node name="Sprite" type="Sprite" parent="Levels/L11"]
+position = Vector2( 20.4911, 19.2305 )
+texture = ExtResource( 4 )
