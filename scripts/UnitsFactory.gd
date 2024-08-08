@@ -20,6 +20,7 @@ func spawn_unit(unitType,pos):
 	if !unitType in UnitNodes: return
 	var NODE = UnitNodes[unitType].instance()
 	NODE.position = pos
+	NODE.unitType = unitType
 	GC.GAME.get_node("World").add_child(NODE)
 	UNITS.append(NODE)
 	emit_signal("train_one",NODE)

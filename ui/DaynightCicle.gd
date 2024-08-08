@@ -21,8 +21,15 @@ func _process(delta):
 		if(_remain_time<=0): 
 			start_night()
 	$Day/TextureProgress.value = (_remain_time/time)*100
-	if isNight: $lb_enemies.text = "Shadows "+str(GC.ENEMIES_FROM_PORTAL)
-	
+	if isNight: 
+		if GC.ENEMIES_FROM_PORTAL>0: $lb_enemies.text = "Shadows "+str(GC.ENEMIES_FROM_PORTAL)
+		else:
+			$lb_enemies.text = ""
+			if GC.PORTALS_THAT_ARE_SPAWNING.size()<=0:
+				set_process(false)
+				yield(get_tree().create_timer(5),"timeout")
+				GC.DAYNIGHT.start_day()
+				set_process(true)
 
 func start_day():
 	if !isNight: return

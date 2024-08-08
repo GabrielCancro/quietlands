@@ -23,7 +23,6 @@ func set_data():
 	if array_actions.size()==1: return
 
 func on_change_current_place(node):
-	print(BuildsFactory.ExludesBuilds)
 	if node && "isBuilded" in node && node.isBuilded: 
 		array_actions = []
 		set_data()

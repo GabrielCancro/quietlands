@@ -3,12 +3,6 @@ extends Node2D
 var tuto_state = 0
 
 func _ready():
-	$Enemies/Portal.spawn_list = [
-		{"day":1, "type":"I", "step":2, "enemy":"GHOST"},
-		{"day":3, "type":"I", "step":3, "enemy":"GHOST"},
-		{"day":6, "type":"I", "step":4, "enemy":"GHOST"},
-	]
-	
 	BuildsFactory.connect("build_one",self,"on_build")
 	UnitsFactory.connect("train_one",self,"on_train")
 	BuildsFactory.ExludesBuilds = BuildsFactory.BuildCosts.keys()
@@ -53,3 +47,11 @@ func on_build(node):
 func on_train(unitNode):
 	if unitNode.unitType=="MILICIAN": tuto_state += 1
 	print("UNIT ",unitNode.unitType," ST",tuto_state)
+	if tuto_state >= 4:
+		GC.OBJETIVETEXT.unset_text()
+		yield(get_tree().create_timer(2),"timeout")
+		GC.show_popup("tuto_07")
+		yield(GC.POPUP,"close_popup")
+		yield(get_tree().create_timer(2),"timeout")
+		GC.end_game(true)
+	

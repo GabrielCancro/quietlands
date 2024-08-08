@@ -9,6 +9,6 @@ func _ready():
 
 func on_click(btn):
 	var n = btn.name
-	if n=="btn_start": get_tree().change_scene("res://scenes/Game.tscn")
+	if n=="btn_start": get_tree().change_scene("res://scenes/Map.tscn")
 	elif n=="btn_options": get_tree().change_scene("res://scenes/Menu.tscn")
 	elif n=="btn_quit": get_tree().quit()

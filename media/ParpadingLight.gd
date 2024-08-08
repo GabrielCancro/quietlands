@@ -19,4 +19,7 @@ func light_animation():
 	$Tween.interpolate_property(self,"energy",energy,to_energy,.08,Tween.TRANS_QUAD,Tween.EASE_OUT_IN)
 	$Tween.start()
 	yield(get_tree().create_timer(.09),"timeout")
-	light_animation()
+	if get_parent(): light_animation()
+
+func _exit_tree():
+	$Tween.remove_all()

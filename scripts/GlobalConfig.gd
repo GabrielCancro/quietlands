@@ -19,13 +19,14 @@ var RESOURCE_NODES = [] # resources and ruins nodes of map
 var ENEMIES_FROM_PORTAL = 0
 var TOTAL_SOLDIERS = 0
 var DARK_CRISTAL_COUNTER = 0
+var PORTALS_THAT_ARE_SPAWNING = []
 var object_selected = null
 
 var RES = {"f":5, "w":5, "s":5, "p":0, "xf":0, "xw":0, "xs":0}
 var LEVELS =  {
-	"L1":"winned",
-	"L2":"toPlay",
-	"L3":"toPlay",
+	"L1":"toPlay",
+	"L2":"discovered",
+	"L3":"discovered",
 }
 var CURRENT_LEVEL = -1
 
@@ -168,7 +169,11 @@ func end_game(win=true):
 		i.visible = false
 		if i.name=="EndGamePanel": 
 			i.visible = true
-			if win==false: UI.get_node("EndGamePanel/Button/Label").text = "HAS MUERTO"
+			if win: 
+				UI.get_node("EndGamePanel/Button/Label").text = Lang.get_localization("endgame_win")
+				GC.LEVELS["L"+str(GC.CURRENT_LEVEL)] = "winned"
+			else: 
+				UI.get_node("EndGamePanel/Button/Label").text = Lang.get_localization("endgame_lose")
 
 func active_near_builds(Build):
 	for b in RESOURCE_NODES:

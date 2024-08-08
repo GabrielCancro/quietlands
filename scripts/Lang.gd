@@ -17,6 +17,9 @@ var TEXTS = {
 	"bld_name_WOOD_es": "MADERA",
 	"bld_name_STONE_es": "PIEDRA",
 	
+	"endgame_win_es":"Victoria!",
+	"endgame_lose_es":"Has sido derrotado",
+	
 	"desc_build_RUINS_es": "Ruinas, estos restos y cimientos pueden utilizarce para edificar nuevas estructuras robustas.",
 	"desc_build_SETTLEMENT_es": "Asentamiento, genera un recurso de comida y madera por turno, es resistente y tiene buen rango de exploración.",
 	"desc_build_HOUSE_es": "Casa, aumenta el limite de guerreros que puedes entrenar.",
@@ -39,6 +42,7 @@ var TEXTS = {
 	"tuto_05_es":"Ya casi estamos listos, vas a necesitar algunos soldados para tu campaña. Para reclutar soldados necesitas un CUARTEL, además tienes que tener suficientes casas.",
 	"tuto_06_es":"Es importante que sepas que los soldados debes alimentarlos, cada soldado gastará (1) de COMIDA cada día. \n-RECLUTA 2 MILICIAS.",
 	"tuto_obj_03_es":"- Construye un CUARTEL y recluta 2 MILICIAS.",
+	"tuto_07_es":"Ya tienes lo básico para esta campaña.",
 }
 # Called when the node enters the scene tree for the first time.
 func get_localization(code):

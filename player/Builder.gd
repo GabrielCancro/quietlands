@@ -39,3 +39,5 @@ func _input(event):
 			UnitsFactory.spawn_unit("ENEMY",get_global_mouse_position())
 		if event.scancode == KEY_P: 
 			GC.DAYNIGHT.start_day()
+		if event.scancode == KEY_L: 
+			GC.end_game(false)
