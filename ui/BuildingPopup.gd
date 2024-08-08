@@ -23,12 +23,13 @@ func set_data():
 	if array_actions.size()==1: return
 
 func on_change_current_place(node):
+	print(BuildsFactory.ExludesBuilds)
 	if node && "isBuilded" in node && node.isBuilded: 
 		array_actions = []
 		set_data()
 		return
 	if node && node.buildType in BuildsFactory.BuildInPlace: 
-		array_actions = BuildsFactory.BuildInPlace[node.buildType]
+		array_actions = BuildsFactory.BuildInPlace[node.buildType].duplicate()
 		var aux_actions = array_actions.duplicate()
 		for ac in aux_actions: if ac in BuildsFactory.ExludesBuilds: array_actions.erase(ac)
 		if index>=array_actions.size(): index = 0

@@ -12,6 +12,7 @@ var TILEMAP
 var RES_POPUP
 var EFFECTOR
 var HELPTEXT
+var OBJETIVETEXT
 var POPUP
 var HEALTHS = []
 var RESOURCE_NODES = [] # resources and ruins nodes of map
@@ -19,7 +20,14 @@ var ENEMIES_FROM_PORTAL = 0
 var TOTAL_SOLDIERS = 0
 var DARK_CRISTAL_COUNTER = 0
 var object_selected = null
+
 var RES = {"f":5, "w":5, "s":5, "p":0, "xf":0, "xw":0, "xs":0}
+var LEVELS =  {
+	"L1":"winned",
+	"L2":"toPlay",
+	"L3":"toPlay",
+}
+var CURRENT_LEVEL = -1
 
 signal new_build_created()
 signal on_select_object(object)
@@ -28,13 +36,7 @@ enum OwnEnum {NONE,PLAYER,ENEMY}
 enum BuildEnum {DEBRIS,HOUSE,BARRACK,ARCHERY,RESOURCE}
 enum UnitEnum {MILICIAN,ARCHER}
 
-var CONFIG = {
-	"units_per_barrack":3,
-}
 
-var data = {
-	"resources": 10
-}
 
 func _ready():
 	pass

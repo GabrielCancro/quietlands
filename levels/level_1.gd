@@ -17,14 +17,19 @@ func _ready():
 	GC.show_popup("tuto_01")
 	yield(GC.POPUP,"close_popup")
 	GC.show_popup("tuto_02")
+	yield(GC.POPUP,"close_popup")
+	GC.OBJETIVETEXT.set_text("tuto_obj_01")
 
 func on_build(node): 
 	if tuto_state==0 && node.buildType=="SETTLEMENT": #SETTLEMENT
 		yield(get_tree().create_timer(2),"timeout")
 		tuto_state = 1
+		GC.OBJETIVETEXT.unset_text()
 		GC.show_popup("tuto_03")
 		yield(GC.POPUP,"close_popup")
 		GC.show_popup("tuto_04")
+		yield(GC.POPUP,"close_popup")
+		GC.OBJETIVETEXT.set_text("tuto_obj_02")
 		BuildsFactory.ExludesBuilds.append("SETTLEMENT")
 		BuildsFactory.ExludesBuilds.erase("EXT_WOOD")
 		BuildsFactory.ExludesBuilds.erase("EXT_FOOD")
@@ -32,10 +37,16 @@ func on_build(node):
 		BuildsFactory.ExludesBuilds.erase("OUTPOST")
 	if tuto_state==1 && node.buildType=="EXT_WOOD":
 		yield(get_tree().create_timer(2),"timeout")
+		GC.OBJETIVETEXT.unset_text()
+		GC.show_popup("tuto_04b")
+		yield(GC.POPUP,"close_popup")
+		yield(get_tree().create_timer(2),"timeout")
 		tuto_state = 2
 		GC.show_popup("tuto_05")
 		yield(GC.POPUP,"close_popup")
 		GC.show_popup("tuto_06")
+		yield(GC.POPUP,"close_popup")
+		GC.OBJETIVETEXT.set_text("tuto_obj_03")
 		BuildsFactory.ExludesBuilds.erase("HOUSE")
 		BuildsFactory.ExludesBuilds.erase("BARRACK")
 

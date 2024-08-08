@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	GC.HELPTEXT = self
+	GC.OBJETIVETEXT = self
 	unset_text()
 
 func set_text(txcode):
