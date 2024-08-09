@@ -24,7 +24,7 @@ var object_selected = null
 
 var RES = {"f":5, "w":5, "s":5, "p":0, "xf":0, "xw":0, "xs":0}
 var LEVELS =  {
-	"L1":"toPlay",
+	"L1":"toPlay", #winned
 	"L2":"discovered",
 	"L3":"discovered",
 }

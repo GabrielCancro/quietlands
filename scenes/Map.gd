@@ -1,10 +1,20 @@
 extends Control
 
+var level_req = {
+	"L2":"L1",
+	"L3":"L1",
+}
+
 func _ready():
 	set_level_states()
 	$btn_back.connect("button_down",self,"on_back")
+	get_tree().paused = false
 
 func set_level_states():
+	for lv in level_req.keys():
+		if GC.LEVELS[lv] == "discovered":
+			if GC.LEVELS[ level_req[lv] ] == "winned": GC.LEVELS[lv] = "toPlay"
+	
 	for lv_node in $Levels.get_children():
 		(lv_node as Button).focus_mode = Button.FOCUS_NONE
 		(lv_node as Button).connect("button_down",self,"on_click",[lv_node])
