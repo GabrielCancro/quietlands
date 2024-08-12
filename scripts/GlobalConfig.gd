@@ -23,10 +23,11 @@ var PORTALS_THAT_ARE_SPAWNING = []
 var object_selected = null
 
 var RES = {"f":5, "w":5, "s":5, "p":0, "xf":0, "xw":0, "xs":0}
+enum LevelState {DISABLED,DISCOVERED,TOPLAY,WINNED}
 var LEVELS =  {
-	"L1":"toPlay",
-	"L2":"discovered",
-	"L3":"discovered",
+	"L1":LevelState.TOPLAY,
+	"L2":LevelState.DISCOVERED,
+	"L3":LevelState.DISCOVERED,
 }
 var CURRENT_LEVEL = -1
 
@@ -171,7 +172,7 @@ func end_game(win=true):
 			i.visible = true
 			if win: 
 				UI.get_node("EndGamePanel/Button/Label").text = Lang.get_localization("endgame_win")
-				GC.LEVELS["L"+str(GC.CURRENT_LEVEL)] = "winned"
+				GC.LEVELS["L"+str(GC.CURRENT_LEVEL)] = GC.LevelState.WINNED
 			else: 
 				UI.get_node("EndGamePanel/Button/Label").text = Lang.get_localization("endgame_lose")
 

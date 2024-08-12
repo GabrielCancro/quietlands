@@ -29,15 +29,3 @@ func check_places(body):
 	emit_signal("on_change_current_place",current_place)
 	if !current_place: GC.HELPTEXT.unset_text()
 	#GC.RES_POPUP.set_popup(current_place)
-
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_F: 
-			#UnitsFactory.spawn_bullet(get_global_mouse_position(),GC.PLAYER)
-			UnitsFactory.spawn_unit("MILICIAN",get_global_mouse_position())
-		if event.scancode == KEY_G: 
-			UnitsFactory.spawn_unit("ENEMY",get_global_mouse_position())
-		if event.scancode == KEY_P: 
-			GC.DAYNIGHT.start_day()
-		if event.scancode == KEY_L: 
-			GC.end_game(false)
