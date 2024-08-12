@@ -1,18 +1,18 @@
 extends Control
 
-const level_influence_distance = 200
+const level_influence_distance = 130
 
 func _ready():
 	set_level_states()
 	$btn_back.connect("button_down",self,"on_back")
+	get_tree().paused = false
 
 func set_level_states():
 	#Add disabled levels to GC.LEVELS dictionari if is necessary
 	for lv_node in $Levels.get_children(): if !lv_node.name in GC.LEVELS.keys(): GC.LEVELS[lv_node.name] = GC.LevelState.DISABLED
 
 	_activate_levels_to_distance()
-	_activate_levels_to_distance()
-
+	
 	for lv_node in $Levels.get_children():
 		(lv_node as Button).focus_mode = Button.FOCUS_NONE
 		(lv_node as Button).connect("button_down",self,"on_click",[lv_node])
@@ -36,12 +36,16 @@ func set_level_states():
 
 func _activate_levels_to_distance():
 	#check all winned levels and set some closed
+	var have_changes = false
 	for lv_node in $Levels.get_children():
 		if GC.LEVELS[lv_node.name]==GC.LevelState.WINNED or GC.LEVELS[lv_node.name]==GC.LevelState.TOPLAY: continue
 		for lv_node2 in $Levels.get_children():
 			if lv_node.rect_position.distance_to(lv_node2.rect_position) < level_influence_distance:
-				if GC.LEVELS[lv_node2.name]==GC.LevelState.TOPLAY: GC.LEVELS[lv_node.name] = GC.LevelState.DISCOVERED
-				if GC.LEVELS[lv_node2.name]==GC.LevelState.WINNED: GC.LEVELS[lv_node.name] = GC.LevelState.TOPLAY
+				if GC.LEVELS[lv_node2.name]>GC.LEVELS[lv_node.name]+1: 
+					GC.LEVELS[lv_node.name] = GC.LEVELS[lv_node2.name]-1
+					print(lv_node.name," ",GC.LEVELS[lv_node.name],"->",GC.LEVELS[lv_node2.name])
+					have_changes = true
+	if have_changes: _activate_levels_to_distance()
 
 
 func on_click(lv_node):

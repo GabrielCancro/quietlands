@@ -26,8 +26,6 @@ var RES = {"f":5, "w":5, "s":5, "p":0, "xf":0, "xw":0, "xs":0}
 enum LevelState {DISABLED,DISCOVERED,TOPLAY,WINNED}
 var LEVELS =  {
 	"L1":LevelState.TOPLAY,
-	"L2":LevelState.DISCOVERED,
-	"L3":LevelState.DISCOVERED,
 }
 var CURRENT_LEVEL = -1
 
@@ -37,8 +35,6 @@ signal on_select_object(object)
 enum OwnEnum {NONE,PLAYER,ENEMY}
 enum BuildEnum {DEBRIS,HOUSE,BARRACK,ARCHERY,RESOURCE}
 enum UnitEnum {MILICIAN,ARCHER}
-
-
 
 func _ready():
 	pass
