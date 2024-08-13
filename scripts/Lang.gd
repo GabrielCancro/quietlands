@@ -43,6 +43,8 @@ var TEXTS = {
 	"tuto_06_es":"Es importante que sepas que los soldados debes alimentarlos, cada soldado gastará (1) de COMIDA cada día. \n-RECLUTA 2 MILICIAS.",
 	"tuto_obj_03_es":"- Construye un CUARTEL y recluta 2 MILICIAS.",
 	"tuto_07_es":"Ya tienes lo básico para esta campaña.",
+	
+	"start_level_2_es":"Utiliza lo que aprendiste para prevalecer. Las noches son peligrosas, asegurate de estar preparado. En las cercanias hay un cristal, debes destruirlo!",
 }
 # Called when the node enters the scene tree for the first time.
 func get_localization(code):

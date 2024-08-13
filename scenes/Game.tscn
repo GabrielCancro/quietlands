@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://player/Builder.gd" type="Script" id=1]
 [ext_resource path="res://ui/ResHeader.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scripts/UI.gd" type="Script" id=13]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=14]
 [ext_resource path="res://ui/ObjetiveText.tscn" type="PackedScene" id=15]
+[ext_resource path="res://effects/FadeOutCurtain.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 40, 40, 8, 40, 8, 8, 40, 8 )
@@ -45,7 +46,7 @@ points = PoolVector2Array( 40, 40, 8, 40, 8, 8, 40, 8 )
 [sub_resource type="CircleShape2D" id=7]
 radius = 25.0
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Control"]
 script = ExtResource( 14 )
 
 [node name="Water" type="ColorRect" parent="."]
@@ -148,6 +149,9 @@ margin_right = 248.0
 margin_bottom = 118.0
 
 [node name="Popup" parent="UI" instance=ExtResource( 5 )]
+visible = false
+
+[node name="FadeOutCurtain" parent="UI" instance=ExtResource( 16 )]
 visible = false
 
 [node name="Effector" parent="." instance=ExtResource( 4 )]

@@ -39,3 +39,4 @@ func _process(delta):
 
 func check_target():
 	target = GC.get_most_close_health(get_parent(),max_distance)
+	if !is_instance_valid(target): target = GC.get_most_close_health(GC.PLAYER,max_distance)

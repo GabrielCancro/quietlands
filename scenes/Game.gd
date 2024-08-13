@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 func _ready():
 	GC.GAME = self
@@ -7,6 +7,7 @@ func _ready():
 	#$Pointer.connect("change_over_object",$UI,"on_pointer_change")
 	GC.connect("on_select_object",$UI,"on_select_object")
 	#$World/TileFog.visible = true
+	BuildsFactory.ExludesBuilds = []	
 	load_level()
 
 func load_level():

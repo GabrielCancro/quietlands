@@ -25,7 +25,7 @@ var object_selected = null
 var RES = {"f":5, "w":5, "s":5, "p":0, "xf":0, "xw":0, "xs":0}
 enum LevelState {DISABLED,DISCOVERED,TOPLAY,WINNED}
 var LEVELS =  {
-	"L1":LevelState.TOPLAY,
+	"L1":LevelState.WINNED,
 }
 var CURRENT_LEVEL = -1
 
