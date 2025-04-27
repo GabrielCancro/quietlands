@@ -1,10 +1,13 @@
 extends Control
 
 const level_influence_distance = 130
+var level_selected
 
 func _ready():
 	set_level_states()
 	$btn_back.connect("button_down",self,"on_back")
+	$SelectLevelPopup/Button.connect("button_down",self,"on_popup_button_click",["OK"])
+	$SelectLevelPopup/Button2.connect("button_down",self,"on_popup_button_click",["CANCEL"])
 	get_tree().paused = false
 
 func set_level_states():
@@ -22,6 +25,7 @@ func set_level_states():
 		var sprite = (lv_node.get_node("Sprite") as Sprite)
 		sprite.texture = preload("res://assets/fog.png")
 		light.color = Color(.01,.01,.01,1)
+		lv_node.visible = true
 		if name in GC.LEVELS.keys():
 			if GC.LEVELS[name] == GC.LevelState.DISCOVERED:
 				sprite.texture = preload("res://assets/Elements/obj_dark_cristal_small.png")
@@ -33,6 +37,7 @@ func set_level_states():
 			elif GC.LEVELS[name] == GC.LevelState.WINNED:
 				sprite.texture = preload("res://assets/Elements/bld_house_2.png")
 				light.color = Color(.5,.5,.5,1)
+			else: lv_node.visible = false
 
 func _activate_levels_to_distance():
 	#check all winned levels and set some closed
@@ -50,9 +55,23 @@ func _activate_levels_to_distance():
 
 func on_click(lv_node):
 	print("CLICK ON ",lv_node.name," ",GC.LevelState.keys()[ GC.LEVELS[lv_node.name] ] )
-	if GC.LEVELS[lv_node.name] == GC.LevelState.TOPLAY:
-		GC.CURRENT_LEVEL = lv_node.get_index()+1
-		get_tree().change_scene("res://scenes/Game.tscn")
+	level_selected = lv_node
+	if GC.LEVELS[lv_node.name] >= GC.LevelState.TOPLAY:
+		show_level_popup()
 
 func on_back():
 	get_tree().change_scene("res://scenes/Menu.tscn")
+
+func show_level_popup():
+	$SelectLevelPopup.visible = true
+	if GC.LEVELS[level_selected.name] >= GC.LevelState.WINNED: 
+		$SelectLevelPopup/BG/lb_text.text = Lang.get_localization("map_select_level_winned")
+	else:
+		$SelectLevelPopup/BG/lb_text.text = Lang.get_localization("map_select_level") + level_selected.name
+
+func on_popup_button_click(val):
+	if val=="CANCEL":
+		$SelectLevelPopup.visible = false
+	elif val=="OK":
+		GC.CURRENT_LEVEL = level_selected.get_index()+1
+		get_tree().change_scene("res://scenes/Game.tscn")

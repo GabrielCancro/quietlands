@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/Elements/bld_house_2.png" type="Texture" id=1]
+[ext_resource path="res://assets/Elements/bld_house_1.png" type="Texture" id=1]
 [ext_resource path="res://builds/House.gd" type="Script" id=2]
 [ext_resource path="res://attacks/healthComponent.tscn" type="PackedScene" id=3]
 [ext_resource path="res://OLD_prefabs/Light2D.tscn" type="PackedScene" id=4]
@@ -18,7 +18,7 @@ hpMax = 10
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1, -4 )
+position = Vector2( 0, -4 )
 texture = ExtResource( 1 )
 
 [node name="Light2D" parent="." instance=ExtResource( 4 )]

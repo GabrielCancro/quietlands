@@ -24,6 +24,8 @@ func check_places(body):
 			if "buildType" in place && place.isEnabled:
 				#if "isBuilded" in place && place.isBuilded: continue
 				current_place = place
+				#GC.HELPTEXT.set_text("desc_build_"+current_place.buildType)
+				GC.HELPTEXT.unset_text()
 				break
 #	if current_place: print("check_places!!! ",current_place.name)
 	emit_signal("on_change_current_place",current_place)

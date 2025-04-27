@@ -45,6 +45,8 @@ var TEXTS = {
 	"tuto_07_es":"Ya tienes lo básico para esta campaña.",
 	
 	"start_level_2_es":"Utiliza lo que aprendiste para prevalecer. Las noches son peligrosas, asegurate de estar preparado. En las cercanias hay un cristal, debes destruirlo!",
+	"map_select_level_es": "La oscuridad espera tu luz. Nivel ",
+	"map_select_level_winned_es": "Ya superaste este nivel. ¿Deseas jugarlo nuevamente?",
 }
 # Called when the node enters the scene tree for the first time.
 func get_localization(code):

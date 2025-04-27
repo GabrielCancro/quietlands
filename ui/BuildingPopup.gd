@@ -13,6 +13,7 @@ func _ready():
 
 func set_data():
 	set_button_data($Button1,-1)
+	$Keybind_Q.visible = false
 	if array_actions.size()<=0: return
 	interaction_cost = get_cost(array_actions[index])
 	set_button_data($Button1,index)
@@ -21,6 +22,7 @@ func set_data():
 		if b.get_index() == index: b.modulate = Color(1,1,1,1)
 		else: b.modulate = Color(.2,.4,.2,1)
 	if array_actions.size()==1: return
+	$Keybind_Q.visible = $HBox.get_child(1).visible
 
 func on_change_current_place(node):
 	if node && "isBuilded" in node && node.isBuilded: 
