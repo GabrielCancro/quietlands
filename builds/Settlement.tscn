@@ -45,11 +45,9 @@ position = Vector2( -9, 1 )
 texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-modulate = Color( 0.843137, 0.87451, 1, 1 )
 position = Vector2( -16, -6 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 6 )
-frame = 2
 playing = true
 flip_h = true
 

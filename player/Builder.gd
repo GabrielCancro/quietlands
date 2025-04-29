@@ -11,14 +11,19 @@ func _ready():
 func _process(delta):
 	position = GC.PLAYER.position
 	$Sprite.visible = is_instance_valid(current_place)
+	$Sprite2.visible = $Sprite.visible
 	if($Sprite.visible):
 		$Sprite.global_position = current_place.global_position
-		$Sprite.z_index = current_place.z_index-10
+		$Sprite2.global_position = current_place.global_position + Vector2(0,-7)
+		if $Sprite2.texture && $Sprite2.texture.get_size().y>48: $Sprite2.global_position += Vector2(0,48-$Sprite2.texture.get_size().y)
+		$Sprite.z_index = current_place.z_index-50
+		$Sprite2.z_index = current_place.z_index+1
 		var hc = current_place.get_node_or_null("healthComponent")
 		if hc: hc.show_healthbar()
 
 func check_places(body):
 	current_place = null
+	set_build_texture(null)
 	if !GC.DAYNIGHT.isNight:
 		for place in get_overlapping_bodies():
 			if "buildType" in place && place.isEnabled:
@@ -31,3 +36,9 @@ func check_places(body):
 	emit_signal("on_change_current_place",current_place)
 	if !current_place: GC.HELPTEXT.unset_text()
 	#GC.RES_POPUP.set_popup(current_place)
+
+func set_build_texture(name):
+	#if name:
+		#$Sprite2.texture = load("res://assets/Elements/bld_"+name.to_lower()+".png")
+	#else:
+		$Sprite2.texture = null

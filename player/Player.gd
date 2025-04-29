@@ -29,6 +29,8 @@ func _process(delta):
 	if(move_velocity.length()>5): $AnimatedSprite.play("walk")
 	else: $AnimatedSprite.play("idle")
 	GC.set_z_index_to(self)
+	
+	$TextureRect.visible = Input.is_action_pressed("tab")
 
 func on_dead(hc):
 	GC.end_game(false)

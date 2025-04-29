@@ -21,6 +21,7 @@ var TOTAL_SOLDIERS = 0
 var DARK_CRISTAL_COUNTER = 0
 var PORTALS_THAT_ARE_SPAWNING = []
 var object_selected = null
+onready var SCREEN_SIZE = get_viewport().get_visible_rect().size
 
 var RES = {"f":5, "w":5, "s":5, "p":0, "xf":0, "xw":0, "xs":0}
 enum LevelState {DISABLED,DISCOVERED,TOPLAY,WINNED}
@@ -161,6 +162,7 @@ func collect_resources():
 #		change_camera_follow(GC.PLAYER)
 
 func end_game(win=true):
+	yield(get_tree().create_timer(2),"timeout")
 	get_tree().paused = true
 	for i in UI.get_children():
 		i.visible = false

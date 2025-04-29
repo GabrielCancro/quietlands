@@ -23,12 +23,20 @@ func _process(delta):
 		target = GC.PLAYER
 		get_node("../AnimatedSprite").play("idle")
 		return
-	distance = global_position.distance_to(GC.PLAYER.global_position)
-	if target && distance<20: spd_modif = -1
-	elif target && distance<35: spd_modif = 0
-	elif target && distance<50: spd_modif = 1
-	elif target && distance<100: spd_modif = distance/20
-	if target && distance>=100: get_parent().global_position = target.global_position
+	if is_instance_valid(target):
+		distance = global_position.distance_to(target.global_position)
+		if target==GC.PLAYER: 
+			if distance<20: spd_modif = -1
+			elif distance<35: spd_modif = 0
+			elif distance<50: spd_modif = 1
+			elif distance<100: spd_modif = distance/20
+			if distance>=100: get_parent().global_position = GC.PLAYER.global_position
+		else: #target==enemy
+			if distance<10: spd_modif = -1
+			elif distance<25: spd_modif = 0
+			else: spd_modif = 2
+			var distance_from_enemy_to_player = target.global_position.distance_to(GC.PLAYER.global_position)
+			if distance_from_enemy_to_player>max_distance: target = GC.PLAYER
 
 	dir = global_position.direction_to(target.global_position)
 	if spd_modif!=0:

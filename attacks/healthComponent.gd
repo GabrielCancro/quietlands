@@ -19,7 +19,7 @@ func _process(delta):
 	modulate.a = min(1,show_time*5)
 
 func get_damage(dam=1):
-	hp -= dam
+	hp -= dam*0.5
 	show_healthbar()
 	#print("DAM ",get_parent().name," ",hp,"/",hpMax)
 	emit_signal("receive_damage",self)

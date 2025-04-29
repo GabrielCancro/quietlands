@@ -40,11 +40,13 @@ func on_change_current_place(node):
 	set_data()
 
 func _process(delta):
+	#if GC.PLAYER_BUILDER.current_place: rect_global_position = GC.SCREEN_SIZE/2 - GC.CAMERA.global_position + GC.PLAYER_BUILDER.current_place.global_position
 	if array_actions.size()==0: return
 	if Input.is_action_pressed("ui_accept"): pressed_time += delta/2
 	else: pressed_time -= delta*2
 	pressed_time = min(.3, max (0,pressed_time))
-	$Button1.rect_scale = Vector2(1,1)+Vector2(pressed_time,pressed_time)
+	$Button1/Keybind_E.rect_scale = Vector2(1,1)+Vector2(pressed_time,pressed_time)
+	if $Keybind_Q.rect_scale.y>1: $Keybind_Q.rect_scale -= Vector2(1,1)*delta
 	if !$Button1/ResCost.isBuildeable: pressed_time = 0
 	if array_actions[index] in UnitsFactory.UnitNodes && GC.RES.p<=GC.TOTAL_SOLDIERS: pressed_time = 0
 	if(pressed_time >= .3): 
@@ -66,6 +68,7 @@ func _input(event):
 		index += 1
 		if index >= array_actions.size(): index = 0
 		set_data()
+		$Keybind_Q.rect_scale = Vector2(1.2,1.2)
 
 func set_button_data(btn,_index):
 	if _index==-1: btn.visible = false
@@ -74,6 +77,7 @@ func set_button_data(btn,_index):
 		btn.get_node("Name").text = Lang.get_localization("bld_name_"+array_actions[_index])
 		GC.HELPTEXT.set_text("desc_build_"+array_actions[_index])
 		btn.get_node("ResCost").set_cost(get_cost(array_actions[_index]))
+		GC.PLAYER_BUILDER.set_build_texture(array_actions[_index])
 	$HBox.visible = btn.visible
 
 func get_cost(type):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://player/Builder.gd" type="Script" id=1]
 [ext_resource path="res://ui/ResHeader.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://scenes/Game.gd" type="Script" id=14]
 [ext_resource path="res://ui/ObjetiveText.tscn" type="PackedScene" id=15]
 [ext_resource path="res://effects/FadeOutCurtain.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/Elements/bld_tower.png" type="Texture" id=17]
+[ext_resource path="res://assets/Shaders/sh_outline.tres" type="Material" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 40, 40, 8, 40, 8, 8, 40, 8 )
@@ -81,6 +83,12 @@ modulate = Color( 1, 1, 1, 0.27451 )
 scale = Vector2( 0.3, 0.2 )
 texture = ExtResource( 11 )
 
+[node name="Sprite2" type="Sprite" parent="World/Builder"]
+modulate = Color( 1, 1, 1, 0.588235 )
+material = ExtResource( 18 )
+position = Vector2( 0, -24 )
+texture = ExtResource( 17 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Builder"]
 modulate = Color( 0, 0.0156863, 1, 0.101961 )
 shape = SubResource( 7 )
@@ -127,10 +135,10 @@ margin_bottom = 33.0
 [node name="BuildingPopup" parent="UI" instance=ExtResource( 6 )]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -81.5
-margin_top = 25.0
-margin_right = 81.5
-margin_bottom = 75.0
+margin_left = -1.0
+margin_top = 104.0
+margin_right = -1.0
+margin_bottom = 104.0
 
 [node name="EndGamePanel" parent="UI" instance=ExtResource( 10 )]
 visible = false
